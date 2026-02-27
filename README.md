@@ -4,7 +4,7 @@ RCOMP 2025-2026 - Project 1 repository template
   * 1240901 - Bruno Miguel Barbosa Monteiro
   * 1241039 - Francisco Moreira Vierra 
   * 1241129 - Gustavo Afonso Santos Ferreira
-  * 1241328 - PedroRodrigues
+  * 1241328 - Pedro Daniel Rodrigues
 
 
 # 2. Sprints #
