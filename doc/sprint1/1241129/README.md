@@ -1,7 +1,28 @@
 RCOMP 2025-2026 Project 1 - Sprint 1 - Member 1241129 folder
 ===========================================
-(This folder is to be created/edited by the team member 1111111 only)
 
-#### This is just an example for a team member with number 1111111 ####
-### Each member should create a folder similar to this, matching his/her number. ###
-The owner of this folder (member number 1111111) will commit here all the outcomes (results/artifacts/products)		       of his/her work during sprint 1. This may encompass any kind of standard file types.
+---
+
+# Terminal 2
+
+Projeto de cablagem estruturada desenvolvido no âmbito da unidade curricular de **RCOMP – Redes de Computadores**.
+
+Este documento descreve o planeamento da infraestrutura de rede para o **Terminal 2**, incluindo:
+
+- deployment de network outlets
+- cobertura wireless
+- planeamento de cable pathways
+- localização de cross-connects
+- inventário de hardware
+
+---
+
+
+
+
+
+
+
+# Conclusão
+
+*(síntese do projeto desenvolvido)*
