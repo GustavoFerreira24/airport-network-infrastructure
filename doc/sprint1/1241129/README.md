@@ -3,26 +3,45 @@ RCOMP 2025-2026 Project 1 - Sprint 1 - Member 1241129 folder
 
 ---
 
-# Terminal 2
+## Terminal 2 – Structured Cabling Design
 
-Projeto de cablagem estruturada desenvolvido no âmbito da unidade curricular de **RCOMP – Redes de Computadores**.
+This document presents the structured cabling design developed for **Terminal 2** as part of the **RCOMP – Computer Networks** course project.
 
-Este documento descreve o planeamento da infraestrutura de rede para o **Terminal 2**, incluindo:
+The goal of this work is to design a structured cabling infrastructure capable of supporting the network requirements of the terminal building.
 
-- deployment de network outlets
-- cobertura wireless
-- planeamento de cable pathways
-- localização de cross-connects
-- inventário de hardware
+The project includes:
+
+- deployment of network outlets
+- wireless network coverage
+- planning of cable pathways
+- placement of cross-connect infrastructure
+- hardware inventory
 
 ---
 
+### Floor Documentation
 
+The documentation for Terminal 2 is organized by floor:
 
+- **Level 1 – Arrivals**  
+  [Terminal 2 - Level 1](Terminals/Terminal2-Level1.md)
 
+- **Level 4 – Departures**  
+  [Terminal 2 - Level 4](Terminals/Terminal2-Level4.md)
 
+---
 
+### Overview
 
-# Conclusão
+Terminal 2 consists of two main floors considered in this project:
 
-*(síntese do projeto desenvolvido)*
+- **Level 1** – Arrivals area
+- **Level 4** – Departures area
+
+For each floor, a structured cabling plan was designed including:
+
+- calculation of the required number of network outlets
+- placement of wireless access points
+- definition of horizontal cross-connects (HC)
+- planning of cable pathways using the existing infrastructure
+- estimation of network hardware requirements
