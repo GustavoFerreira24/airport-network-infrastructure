@@ -83,79 +83,51 @@ densidade de **um outlet a cada cinco metros**.
 
 ---
 
-## Deployment de Hardware 
+## Deployment of Hardware
 
-*(planta com outlets, cabos, APs e HC)*
+### Structured Cabling Layout – Level 1
+
+The following diagram shows the placement of the HC, network outlets,
+cable pathways and wireless access points across the floor.
+
+![Structured Cabling](images/T2-L1-Cabling.png)
 
 
----
+### Cable Pathways
 
-## Wireless Access Points – Level 0
+Cables from each room are routed to the nearest **floor cable passageway**.
+From there, they follow the **underfloor cable raceway** to the
+Horizontal Cross-Connect located in **Room 12**.
 
-O Level 0 do Terminal 5 tem dimensões aproximadas de 400 m × 150 m,
-por isso é necessário distribuir vários access points ao longo do piso
-para garantir cobertura Wi-Fi em toda a área.
+Wireless access points are installed above the **dropped ceiling**
+and connected to the HC through the nearest pathway.
 
-Em ambientes interiores, um access point consegue normalmente cobrir
-uma área com cerca de 20 a 30 metros de raio, dependendo das paredes
-e de outros obstáculos existentes no edifício.
 
-Tendo em conta o tamanho do piso e a disposição das salas,
-foram considerados **8 access points** para o Level 0.
-Estes access points serão distribuídos de forma aproximadamente
-uniforme ao longo do terminal.
+### Cable Length Estimation
 
-Os access points serão instalados acima do dropped ceiling,
-o que facilita a propagação do sinal e permite esconder
-a cablagem. Cada AP será ligado por cabo Ethernet ao
-HC localizado na Room 18.
+| Room | HC → Passageway | Outlets → Passageway | Total |
+|------|-----------------|----------------------|-------|
+|      |                 |                      |       |
+|      |                 |                      |       |
+|      |                 |                      |       |
 
----
 
-## Cable Pathways 
-
-O Level 0 possui um sistema de underfloor cable raceway e 9 floor cable
-passageways distribuídos ao longo do piso.
-
-A solução adotada foi encaminhar os cabos de cada sala até ao floor cable
-passageway mais próximo. A partir desse ponto, os cabos seguem pelo
-underfloor cable raceway até ao Horizontal Cross-Connect localizado na
-Room 18.
-
-Esta abordagem permite reduzir o comprimento médio da cablagem horizontal
-e aproveitar melhor a infraestrutura já existente no piso.
-
-No caso dos access points, os cabos partem da zona do dropped ceiling,
-descem até ao pathway mais próximo e seguem depois até ao HC através
-do raceway.
-
----
-
-## Cálculo de Cabos
-
-| Sala | HC até Passageway | Outlets até Passageway | Total |
-|------|-------------------|------------------------|-------|
-|      |                   |                        |       |
-|      |                   |                        |       |
-|      |                   |                        |       |
-
----
-
-## Access Points
-
-| Piso    | AP1 | AP2 | AP3 |
-|---------|-----|-----|-----|
-| Level 0 |     |     |     |
-
----
-
-## Total de Cabos – Level 0
+### Total Cabling – Level 1
 
 CAT7:
 
-Monomode 10:
+Monomode Fibre:
+
+### Wireless Access Points – Level 1
+
+Access points were distributed across the ceiling to ensure
+full wireless coverage of the terminal floor.
+
+![Wireless Coverage](../images/L1-WirelessCoverage.png)
+
 
 ---
+
 
 ## Inventário de Hardware 
 
@@ -186,14 +158,7 @@ Monomode 10:
 
 
 
+# Conclusão
 
-
-
-
-
-
-
-
-
-
+*(síntese do projeto desenvolvido)*
 

@@ -190,19 +190,6 @@ Monomode 10:
 
 
 
+# Conclusão
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*(síntese do projeto desenvolvido)*
