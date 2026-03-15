@@ -29,7 +29,7 @@ The documentation for Terminal 2 is organized by floor:
 
 | Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Patch Panels Cobre | Patch Panels Fibra | Access Point | IC | HC |
 |:---------------:|:------------------:|:-------------------------:|:------------------:|:------------------:|:------------:|:--:|:--:|
-|      2346       |      73675,44      |          3531,42          |         ?          |         ?          |     101      | 2  | 16 |
+|      2346       |      73675,44      |          3531,42          |         16         |         18         |     101      | 2  | 56 |
 
 
 
