@@ -113,3 +113,61 @@ The number of outlets was calculated using the standard work area outlet density
 | 4.2.19 | 30.00     | 10.00      | 300.00    | 60                |
 | 4.2.20 | 20.83     | 10.00      | 208.30    | 42                |
 | 4.2.21 | 21.67     | 10.00      | 216.70    | 44                |
+
+## Cables in meters ##
+
+| <span style="color: #0ECFC5"> Level 0 </span> |
+
+### HC1 (in room 4.0.4) ###
+|            To HC            | Length of Fibre (m) |                     
+|:---------------------------:|:-------------------:|
+|      HC1 - Room 4.0.4       |        5,00         |
+| HC2 - Room 4.0.12 (ceiling) |        99,25        |       
+| HC3 - Room 4.0.16 (ceiling) |        50,96        |     
+|           *Total*           |       155,21        |
+
+    
+ 
+### HC1 (in room 4.0.4) ###
+|    To Room or Ap    | Length of CAT7 (m) |                     
+|:-------------------:|:------------------:|
+| 4.0.2 - underground |       84,69        |
+| 4.0.3 - underground |       54,22        |       
+| 4.0.5 - underground |       24,81        |     
+| 4.0.6 - underground |       52,68        |   
+| 4.0.7 - underground |       77,48        | 
+|  4.0.14 - ceiling   |       55,85        |
+|  4.0.15 - ceiling   |       39,57        |
+|   Access Point 1    |        64,4        |
+|   Access Point 2    |       24,21        |
+|   Access Point 3    |       29,69        |
+|   Access Point 9    |       45,12        |
+|       *Total*       |       552,72       |
+
+
+### HC2 (in room 4.0.12) ###
+|  To Room or Ap   | Length of CAT7 (m) |                     
+|:----------------:|:------------------:|
+| 4.0.1 - ceiling  |       42,38        |
+| 4.0.12 - ceiling |       38,11        |
+| 4.0.13 - ceiling |       15,67        |
+|  Access Point 4  |       51,60        |
+|  Access Point 5  |       37,52        |
+|  Access Point 6  |       21,57        |
+|  Access Point 7  |        8,08        |
+|  Access Point 8  |       47,88        |
+| Access Point 12  |       44,09        |
+| Access Point 13  |       59,30        |
+|     *Total*      |       366,20       |
+
+
+### HC3 (in room 4.0.16) ###
+|  To Room or Ap   | Length of CAT7 (m) |                     
+|:----------------:|:------------------:|
+| 4.0.16 - ceiling |        4,60        |
+| Access Point 10  |        4,66        |
+| Access Point 11  |       28,72        |
+| Access Point 14  |       63,40        |
+| Access Point 15  |       69,22        |
+| Access Point 16  |       52,35        |
+|     *Total*      |       222,95       |
