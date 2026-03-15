@@ -394,16 +394,16 @@ Total - 90,40
 
 
 ### Hardware Inventory - <span style="color: #45FF56"> Level 2 ###
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Fibre Patch Panels | Fibre Patch Panels |
-|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|----|--------------------|--------------------|
-|       703       |      17437,2       |          152,42           |      16      | 1  | 3  | 30 | 3                  | 4                  |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Copper Patch Panels | Fibre Patch Panels |
+|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|----|---------------------|--------------------|
+|       703       |      17437,2       |          152,42           |      16      | 1  | 3  | 30 | 3                   | 4                  |
 
 
 # Hardware Inventory - Combined Total
 
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Fibre Patch Panels | Fibre Patch Panels |
-|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|:--:|--------------------|--------------------|
-|      1343       |      32573,3       |          307,63           |      32      | 2  | 6  | 41 | 6                  | 8                  |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Copper Patch Panels | Fibre Patch Panels |
+|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|:--:|---------------------|--------------------|
+|      1343       |      32573,3       |          307,63           |      32      | 2  | 6  | 41 | 6                   | 8                  |
 
     -note : Patch panels were dimensioned from the number of cables terminating at each cross-connect. 
             For copper horizontal cabling, 24-port CAT7 patch panels were considered, which is adequate
