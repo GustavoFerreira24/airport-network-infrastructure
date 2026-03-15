@@ -67,7 +67,7 @@ Dimensions: 200 x 100 meters.
 
 The number of outlets was calculated using the standard work area outlet density rule presented in the structured cabling guidelines, considering 2 outlets per each 10 m² of area, with a minimum of 2 outlets per work area. Rooms explicitly excluded by the project statement were assigned 0 outlets.
 
-<span style="color: #0ECFC5"> Ground Floor </span>
+- <span style="color: #0ECFC5"> Level 0 </span>
 
 | Room   | Width (m) | Length (m) | Area (m²) | Number of Outlets |
 |--------|-----------|------------|-----------|-------------------|
@@ -88,3 +88,28 @@ The number of outlets was calculated using the standard work area outlet density
 | 4.0.15 | 20.83     | 13.33      | 277.66    | 56                |
 | 4.0.16 | 21.66     | 13.33      | 288.73    | 58                |
 
+- <span style="color: #45FF56"> Level 2 (Departures) </span>
+
+| Room   | Width (m) | Length (m) | Area (m²) | Number of Outlets |
+|--------|-----------|------------|-----------|-------------------|
+| 4.2.1  | 33.33     | 10.00      | 333.30    | 68                |
+| 4.2.2  | 30.00     | 10.00      | 300.00    | 60                |
+| 4.2.3  | 10.00     | 10.00      | 100.00    | 0                 |
+| 4.2.4  | 18.33     | 10.00      | 183.30    | 38                |
+| 4.2.5  | 25.00     | 10.00      | 250.00    | 50                |
+| 4.2.6  | 25.00     | 10.00      | 250.00    | 0                 |
+| 4.2.7  | 10.00     | 15.83      | 158.30    | 32                |
+| 4.2.8  | 25.00     | 10.00      | 250.00    | 0                 |
+| 4.2.9  | 10.00     | 15.83      | 158.30    | 32                |
+| 4.2.10 | 21.67     | 13.33      | 288.86    | 0                 |
+| 4.2.11 | 21.67     | 13.33      | 288.86    | 0                 |
+| 4.2.12 | 24.17     | 6.67       | 161.19    | 32                |
+| 4.2.13 | 15.00     | 6.67       | 100.05    | 20                |
+| 4.2.14 | 18.33     | 6.67       | 122.20    | 24                |
+| 4.2.15 | 19.17     | 6.67       | 127.83    | 26                |
+| 4.2.16 | 20.83     | 6.67       | 138.94    | 28                |
+| 4.2.17 | 24.17     | 10.00      | 241.70    | 48                |
+| 4.2.18 | 21.67     | 10.00      | 216.70    | 44                |
+| 4.2.19 | 30.00     | 10.00      | 300.00    | 60                |
+| 4.2.20 | 20.83     | 10.00      | 208.30    | 42                |
+| 4.2.21 | 21.67     | 10.00      | 216.70    | 44                |
