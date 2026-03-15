@@ -317,7 +317,7 @@ Resultado = 23 498,62
 
 ## Hardware Inventory ##
 
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Patch Panels (48) | Patch Panels (24) | Access Point | IC | HC |
-|:---------------:|:------------------:|:-------------------------:|:-----------------:|:-----------------:|:------------:|:--:|:--:|
-|       954       |      26400,13      |          1543,67           |         ?         |         ?         |      48      | 1  | 7  |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Fibra Patch Pannels | Cobre Patch Pannels | Access Point | IC | HC |
+|:---------------:|:------------------:|:-------------------------:|:-------------------:|:-------------------:|:------------:|:--:|:--:|
+|       954       |      26400,13      |          1543,67           |          8          |          7          |      48      | 1  | 7  |
 
