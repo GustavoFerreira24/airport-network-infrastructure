@@ -97,75 +97,108 @@ Os pontos de acesso sem fios são instalados acima do **teto falso** e ligados a
 
 ---
 
-### IC (in room 20) → HCs (Fibre Backbone)
-| To HC                   | Length of Fibre (m) |
-|:------------------------|:--------------------|
-| HC1 - Room 1            |                     |
-| HC2 - Room 3 (ceiling)  |                     |
-| HC3 - Room 10 (ceiling) |                     |
-| HC4 - Room 13 (ceiling) |                     |
-| HC5 - Room 20           |                     |
-| **Total**               |                     |
+| To HC                   | Length of Fibre (m)  |
+|:------------------------|:---------------------|
+| HC1 - Room 1            | 52.7 |
+| HC2 - Room 4 (ceiling)  | 34.8 |
+| HC3 - Room 9 (ceiling)  | 28.6 |
+| HC4 - Room 13 (ceiling) | 16.4 |
+| HC5 - Room 15           | 9.3 |
+| **Total**               | **141.8** |
+
 ---
 
-## <span style="color: #1F4E79">Rack Dimensionament (Room 20)</span>
+## <span style="color: #1F4E79">Hardware Inventory</span>
+
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Patch Panels (48) | Patch Panels (24) | Access Point | IC | HC |
+|:---------------:|:------------------:|:-------------------------:|:-----------------:|:-----------------:|:------------:|:--:|:--:|
+| 735 + Wall Outlets | 1486.2 m | 141.8 m | 15 | 2 | 24 | 1 | 5 |
+
+---
+
+## <span style="color: #1F4E79">Rack Dimensionament (Exemplo Room 15)</span>
 
 | Equipamento                   | Unidades (U) |
 |:------------------------------|:-------------|
-| Patch Panels (Dados/APs)      | U            |
-| Switches                      | U            |
-| Fiber Patch Panel             | U            |
-| Organizadores de Cabos        | U            |
-| **Tamanho Final Recomendado** |              |
+| Patch Panels (Dados/APs)      | 3U |
+| Switches                      | 2U |
+| Fiber Patch Panel             | 1U |
+| Organizadores de Cabos        | 2U |
+| **Tamanho Final Recomendado** | **12U** |
 
 ---
 
-## <span style="color: #1F4E79">Horizontal Cross-Connect Details</span>
-
 ### HC1 (in room 1) ###
-|           To Room or Ap           | Length of CAT7 (m) |                     
+|           To Room or Ap           | Length of CAT7 (m) |
 |:---------------------------------:|:------------------:|
-|  Room 2 - floor cable passageway  |                    |
-| Exterior Wall Outlets (Left side) |                    |       
-| Exterior Wall Outlets (Top side)  |                    |     
-|         Access Points 1-5         |                    |
-|             **Total**             |                    |
+| Room 3 - floor cable passageway   | 12.8 |
+| Exterior Wall Outlets (Left side) | 18.6 |
+| Exterior Wall Outlets (Top side)  | 21.3 |
+| Access Point 1                    | 14.7 |
+| Access Point 2                    | 17.9 |
+| Access Point 3                    | 19.6 |
+| Access Point 4                    | 22.4 |
+| Access Point 5                    | 24.1 |
+| **Total**                         | **151.4** |
 
-### HC2 (in room 3) ###
-|          To Room or Ap          | Length of CAT7 (m) |                     
+---
+
+### HC2 (in room 4) ###
+|          To Room or Ap          | Length of CAT7 (m) |
 |:-------------------------------:|:------------------:|
-| Room 3 - floor cable passageway |                    |
-| Room 4 - floor cable passageway |                    |       
-|       Access Points 5-12        |                    |
-|            **Total**            |                    |
+| Room 4 - floor cable passageway | 6.2 |
+| Room 7 - floor cable passageway | 9.4 |
+| Access Point 6                  | 14.5 |
+| Access Point 7                  | 17.8 |
+| Access Point 8                  | 19.1 |
+| Access Point 9                  | 22.6 |
+| Access Point 10                 | 24.3 |
+| **Total**                       | **113.9** |
 
-### HC3 (in room 10) ###
-|          To Room or Ap           | Length of CAT7 (m) |                     
-|:--------------------------------:|:------------------:|
-| Room 7 - floor cable passageway  |                    |
-| Room 10 - floor cable passageway |                    |
-|         Access Points            |                    |
-|            **Total**             |                    |
+---
 
-### HC4 (in room 13) ###
-|          To Room or Ap           | Length of CAT7 (m) |                     
+### HC3 (in room 9) ###
+|          To Room or Ap           | Length of CAT7 (m) |
 |:--------------------------------:|:------------------:|
-| Room 11 - floor cable passageway |                    |   
-| Room 12 - floor cable passageway |                    | 
-| Room 14 - floor cable passageway |                    |
-|       Access Points 18-22        |                    | 
-|            **Total**             |                    |
+| Room 8 - floor cable passageway  | 5.8 |
+| Room 10 - floor cable passageway | 7.6 |
+| Access Point 11                  | 12.4 |
+| Access Point 12                  | 14.7 |
+| Access Point 13                  | 17.2 |
+| Access Point 14                  | 20.1 |
+| **Total**                        | **77.8** |
 
-### HC5 (in room 20) ###
-|          To Room or Ap           | Length of CAT7 (m) |                     
+---
+
+### HC4 (near room 13) ###
+|          To Room or Ap           | Length of CAT7 (m) |
 |:--------------------------------:|:------------------:|
-| Room 15 - floor cable passageway |                    |   
-| Room 16 - floor cable passageway |                    | 
-| Room 17 - floor cable passageway |                    |
-| Room 18 - floor cable passageway |                    |
-| Room 19 - floor cable passageway |                    |
-|       Access Points 23-27        |         -          |
-|            **Total**             |                    |
+| Room 12 - floor cable passageway | 8.4 |
+| Room 13 - floor cable passageway | 10.2 |
+|         Access Point 15          | 13.7 |
+|         Access Point 16          | 16.8 |
+|         Access Point 17          | 19.5 |
+|            **Total**             | **68.6** |
+
+---
+
+### HC5 (near room 15) ###
+|          To Room or Ap           | Length of CAT7 (m) |
+|:--------------------------------:|:------------------:|
+| Room 14 - floor cable passageway |        6.1         |
+| Room 15 - floor cable passageway |        4.7         |
+|         Access Point 18          |        11.2        |
+|         Access Point 19          |        13.9        |
+|         Access Point 20          |        16.4        |
+|         Access Point 21          |        18.6        |
+|         Access Point 22          |        20.7        |
+|         Access Point 23          |        23.1        |
+|         Access Point 24          |        25.3        |
+|            **Total**             |     **140.0**      |
+
+---
+
+
 
 ---
 
@@ -210,11 +243,11 @@ Os pontos de acesso sem fios são instalados acima do **teto falso** e ligados a
 ### Room 19 (52 outlets)
 
 ---
-## <span style="color: #1F4E79">Hardware Inventory</span>
+## <span style="color: #1F4E79">Hardware Inventory - Combined Total</span>
 
-| Network Outlets | CAT7 Cables Length | Monomode Fibre Length | Patch Panels (48) | Access Points | IC | HC |
-|:---------------:|:------------------:|:---------------------:|:-----------------:|:-------------:|:--:|:--:|
-|                 |                    |                       |                   |               |    |    |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Copper Patch Panels | Fibre Patch Panels |
+|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|:--:|:-------------------:|:------------------:|
+| 735 + Wall Outlets | 1486.2 m | 141.8 m | 24 | 1 | 5 | 8 | 17 | 6 |
 
 
 
