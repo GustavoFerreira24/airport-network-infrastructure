@@ -219,9 +219,9 @@ The number of outlets was calculated using the standard work area outlet density
 
 ### Hardware Inventory - <span style="color: #0ECFC5"> Level 0 ###
 
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP |
-|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|----|
-|       640       |      15136,1       |          155,21           |      16      | 1  | 3  | 11 |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Copper Patch Panels | Fibre Patch Panels |
+|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|----|---------------------|--------------------|
+|       640       |      15136,1       |          155,21           |      16      | 1  | 3  | 11 | 3                   | 4                  |
 
 
 
@@ -394,13 +394,18 @@ Total - 90,40
 
 
 ### Hardware Inventory - <span style="color: #45FF56"> Level 2 ###
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP |
-|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|----|
-|       703       |      17437,2       |          152,42           |      16      | 1  | 3  | 30 |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Fibre Patch Panels | Fibre Patch Panels |
+|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|----|--------------------|--------------------|
+|       703       |      17437,2       |          152,42           |      16      | 1  | 3  | 30 | 3                  | 4                  |
 
 
 # Hardware Inventory - Combined Total
 
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP |
-|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|:--:|
-|      1343       |      32573,3       |          307,63           |      32      | 2  | 6  | 41 |
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Access Point | IC | HC | CP | Fibre Patch Panels | Fibre Patch Panels |
+|:---------------:|:------------------:|:-------------------------:|:------------:|:--:|:--:|:--:|--------------------|--------------------|
+|      1343       |      32573,3       |          307,63           |      32      | 2  | 6  | 41 | 6                  | 8                  |
+
+    -note : Patch panels were dimensioned from the number of cables terminating at each cross-connect. 
+            For copper horizontal cabling, 24-port CAT7 patch panels were considered, which is adequate
+            for the number of CAT7 links terminating in each HC. For backbone fibre cabling, one fibre
+            patch panel was considered at the IC and one at each HC receiving optical fibre.
