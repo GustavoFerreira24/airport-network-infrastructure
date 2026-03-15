@@ -45,3 +45,11 @@ For each floor, a structured cabling plan was designed including:
 - definition of horizontal cross-connects (HC)
 - planning of cable pathways using the existing infrastructure
 - estimation of network hardware requirements
+
+
+
+### Summary of Results
+
+| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Patch Panels (cobre) | Patch Panels (fibra) | Access Point | IC | HC | CP |
+|:---------------:|:------------------:|:-------------------------:|:--------------------:|:--------------------:|:------------:|:--:|:--:|:--:|
+|      1430       |      23983.18      |          1292.08          |          10          |          12          |      62      | 2  | 10 | 58 |
