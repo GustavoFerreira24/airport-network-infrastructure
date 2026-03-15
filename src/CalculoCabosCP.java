@@ -1,54 +1,82 @@
 import java.util.Scanner;
 
 public class CalculoCabosCP {
+
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Comprimento da parede 1 (m): ");
-        double parede1 = sc.nextDouble();
+        System.out.println("Modo de distribuicao:");
+        System.out.println("1 - CP no inicio");
+        System.out.println("2 - CP num canto");
+        System.out.print("Escolha: ");
+        int modo = sc.nextInt();
 
-        System.out.print("Comprimento da parede 2 (m): ");
-        double parede2 = sc.nextDouble();
+        System.out.print("Comprimento parede 1 (m): ");
+        double p1 = sc.nextDouble();
 
-        System.out.print("Comprimento da parede 3 (m): ");
-        double parede3 = sc.nextDouble();
+        System.out.print("Comprimento parede 2 (m): ");
+        double p2 = sc.nextDouble();
+
+        System.out.print("Comprimento parede 3 (m): ");
+        double p3 = sc.nextDouble();
 
         System.out.print("Numero de outlets: ");
         int outlets = sc.nextInt();
 
-        if (outlets <= 0) {
-            System.out.println("O numero de outlets tem de ser maior que 0.");
-            sc.close();
-            return;
-        }
+        double comprimentoTotal = p1 + p2 + p3;
+        double d = comprimentoTotal / outlets;
 
-        double comprimentoTotalParedes = parede1 + parede2 + parede3;
-        double distanciaMedia = comprimentoTotalParedes / outlets;
-        double totalCabos = 0.0;
+        double total = 0;
 
         System.out.println();
-        System.out.printf("Comprimento total das paredes: %.2f m%n", comprimentoTotalParedes);
-        System.out.printf("Distancia media entre outlets: %.2f m%n", distanciaMedia);
-        System.out.println();
+        System.out.printf("Distancia media: %.2f m\n\n", d);
 
-        StringBuilder expressao = new StringBuilder();
+        StringBuilder soma = new StringBuilder();
 
-        for (int i = 1; i <= outlets; i++) {
-            double comprimentoCabo = i * distanciaMedia;
-            totalCabos += comprimentoCabo;
+        if (modo == 1) {
+            // CP no início
+            for (int i = 1; i <= outlets; i++) {
 
-            System.out.printf("Comprimento cabo %d: %.2f m%n", i, comprimentoCabo);
+                double cabo = i * d;
+                total += cabo;
 
-            expressao.append(String.format("%.2f", comprimentoCabo));
-            if (i < outlets) {
-                expressao.append(" + ");
+                System.out.printf("Cabo %d: %.2f m\n", i, cabo);
+
+                soma.append(String.format("%.2f", cabo));
+                if (i < outlets) soma.append(" + ");
+            }
+
+        } else if (modo == 2) {
+            // CP num canto
+            int metade = outlets / 2;
+
+            for (int i = 1; i <= metade; i++) {
+
+                double cabo = i * d;
+                total += cabo;
+
+                System.out.printf("Lado A - cabo %d: %.2f m\n", i, cabo);
+
+                soma.append(String.format("%.2f", cabo));
+                soma.append(" + ");
+            }
+
+            for (int i = 1; i <= outlets - metade; i++) {
+
+                double cabo = i * d;
+                total += cabo;
+
+                System.out.printf("Lado B - cabo %d: %.2f m\n", i, cabo);
+
+                soma.append(String.format("%.2f", cabo));
+                if (i < outlets - metade) soma.append(" + ");
             }
         }
 
-        expressao.append(String.format(" = %.2f m", totalCabos));
+        soma.append(String.format(" = %.2f m", total));
 
-        System.out.println();
-        System.out.println(expressao);
+        System.out.println("\n" + soma);
 
         sc.close();
     }
