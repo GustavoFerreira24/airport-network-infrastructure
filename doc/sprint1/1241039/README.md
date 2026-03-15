@@ -26,6 +26,3 @@ The documentation for Terminal 2 is organized by floor:
 ---
 
 
-# Conclusão
-
-*(síntese do projeto desenvolvido)*

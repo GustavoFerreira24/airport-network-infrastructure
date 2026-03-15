@@ -4,18 +4,13 @@
 
 O Level 0 do Terminal 5 corresponde à zona de Arrivals do terminal.
 
-Este piso possui uma infraestrutura preparada para suportar a instalação
-de cablagem de rede. Ao longo do piso existe um underfloor cable raceway,
-que permite a passagem de cabos por baixo do chão e facilita a distribuição
-da cablagem entre as diferentes salas do terminal.
+Este piso possui dimensões aproximadas de 400 m × 150 m.
 
-Este sistema encontra-se também ligado a uma external technical ditch,
-o que permite a ligação da infraestrutura de rede do edifício a outras
-infraestruturas externas.
+O piso dispõe de uma infraestrutura de cablagem estruturada preparada para suportar a instalação da rede. Existe um underfloor cable raceway que percorre o piso, permitindo a passagem de cabos por baixo do chão.
 
-Na planta estão identificados vários pontos de acesso ao raceway,
-que permitem encaminhar os cabos provenientes das diferentes salas até
-ao sistema principal de cablagem.
+Este sistema encontra-se ligado a uma external technical ditch, permitindo a ligação da infraestrutura de rede do terminal a infraestruturas externas.
+
+Na planta do piso estão identificados vários floor cable passageways, que permitem a ligação entre as salas e o sistema de raceway.
 
 O piso possui ainda um dropped ceiling com aproximadamente 4 metros de
 altura, que pode ser utilizado para a instalação de equipamentos de
@@ -25,19 +20,21 @@ rede, como wireless access points.
 
 ## Regras Especiais do Piso
 
-De acordo com o enunciado do projeto, algumas salas do Level 0 possuem
-requisitos específicos relativamente à instalação de network outlets.
+Algumas salas do Level 0 possuem requisitos específicos relativamente à instalação de network outlets.
 
-As salas destinadas a áreas de trabalho devem possuir o número padrão
-de network outlets, calculado com base na densidade de cablagem definida
-para o projeto.
+As salas destinadas a áreas de trabalho devem possuir o número de network outlets. (3,4,5,6,7,8,9,10,11,14,15,19,20,21)
 
 Por outro lado, algumas salas correspondem a zonas de circulação,
-instalações técnicas ou áreas de apoio, pelo que não necessitam de
-network outlets.
+instalações técnicas ou áreas de apoio, não necessitam de
+network outlets. (1,2,12,13,16,17,18,22).
+
+Existem quatro passagens verticais para cabos percorrem todos os andares do edifício.
+Num andar inferior, essas passagens verticais para cabos têm conexão direta com a passagem subterrânea externa. 
+A distância vertical entre este andar e a conexão com a passagem subterrânea externa é de 3 metros.
 
 Além disso, algumas destas salas podem ser utilizadas para alojar
-infraestrutura de rede, como equipamentos de cross-connect.
+infraestrutura de rede, como equipamentos de cross-connect. (1,2,18,22)
+
 ---
 
 ## Salas com Network Outlets
@@ -57,6 +54,16 @@ infraestrutura de rede, como equipamentos de cross-connect.
 1,2,18,22
 
 ---
+
+## Cálculo do Número de Network Outlets
+
+Foi considerada a regra de:
+
+2 network outlets a cada 10 m² de área, equivalente a 1 outlet a cada 5 m².
+
+Assim, o número de outlets foi calculado dividindo a área da sala por 5, arredondando para o valor inteiro seguinte.
+
+----
 
 ## Mediçōes das Salas – Level 0
 
@@ -79,87 +86,57 @@ infraestrutura de rede, como equipamentos de cross-connect.
 
 ---
 
-### Localização dos Horizontal Cross-Connects (HC)
+## Localização dos Horizontal Cross-Connects (HC)
 
 Devido à grande dimensão do Level 0 do Terminal 5, optou-se por
 distribuir a infraestrutura de rede por vários pontos do piso.
 
-As Rooms 1, 2, 18 e 22, identificadas no enunciado como salas
+As salas 1, 2, 18 e 22, identificadas no enunciado como salas
 adequadas para alojar network infrastructure hardware, foram utilizadas
-para instalar os Horizontal Cross-Connects (HC) do piso.
+para instalar algum dos HC do piso.
 
-A distribuição dos HCs por diferentes zonas do terminal permite
-reduzir o comprimento médio da cablagem horizontal, garantindo que
-as ligações em cabo de cobre não ultrapassam as distâncias recomendadas.
+A distribuição dos HCs por diferentes zonas do terminal garante que
+as ligações em cabo de cobre não ultrapassam as distâncias recomendadas, de 90 m;
 
-Além disso, estas salas são espaços técnicos e não áreas de utilização
-pública, sendo adequadas para a instalação de racks, patch panels e
-outros equipamentos de rede.
+Com isto, foram adicionados outros HC nas salas 7, 10 e 14.
 
 
-## Deployment de Network Outlets – Level 0
+## Deployment de Network Outlets - Level 0
 
-A distribuição dos network outlets foi realizada de forma a garantir
-cobertura adequada das áreas de trabalho e acessibilidade a equipamentos
-de rede em todo o piso.
+Os network outlets foram distribuídos ao longo das paredes das salas, procurando garantir acessibilidade aos pontos de rede em toda a área das salas.
 
-Os outlets foram distribuídos ao longo das paredes das salas,
-procurando garantir que qualquer ponto da sala se encontra a uma
-distância razoável de um ponto de rede.
+De forma a simplificar a representação gráfica na planta, os outlets foram representados por um símbolo único acompanhado da quantidade total de outlets presentes em cada sala.
 
-A quantidade de outlets por sala foi determinada com base na
-densidade padrão de cablagem estruturada:
-
-2 network outlets por cada 10 m² de área.
-
-Esta abordagem permite suportar um elevado número de dispositivos
-de rede e garantir flexibilidade para futuras expansões.
+Esta abordagem permite manter o diagrama legível, evitando a necessidade de desenhar individualmente cada outlet.
 
 
 ## Deployment de Hardware – Level 0
 
-*(planta com outlets, cabos, APs e HC)*
 
 ---
 
-## Wireless Access Points – Level 0
 
-O Level 0 do Terminal 5 tem dimensões aproximadas de 400 m × 150 m,
-por isso é necessário distribuir vários access points ao longo do piso
-para garantir cobertura Wi-Fi em toda a área.
+## Wireless Access Points - Level 0
 
-Em ambientes interiores, um access point consegue normalmente cobrir
-uma área com cerca de 20 a 30 metros de raio, dependendo das paredes
-e de outros obstáculos existentes no edifício.
+Devido à grande dimensão do terminal, foi necessária a instalação de 48 wireless access points para garantir cobertura Wi-Fi em toda a área do piso.
 
-Tendo em conta o tamanho do piso e a disposição das salas,
-foram considerados **8 access points** para o Level 0.
-Estes access points serão distribuídos de forma aproximadamente
-uniforme ao longo do terminal.
+Garantiu a cobertura total do piso, foram distríbuidos também de forma a ocupar o maximo de area do terminal, evitando zonas fora do terminal. 
 
-Os access points serão instalados acima do dropped ceiling,
-o que facilita a propagação do sinal e permite esconder
-a cablagem. Cada AP será ligado por cabo Ethernet ao
-HC localizado na Room 18.
+Há muitas zonas de sobreposição para garantir que nao existiam zonas sem cobertura, e para garantir a melhor qualidade de sinal possível.
+
+Cada access point é ligado à rede através de cabos CAT7 do teto , que estao direta ou indiretamente ligados ao Horizontal Cross-Connect que os consegue alcançar.
 
 ---
 
-## Cable Pathways – Level 0
+## Cable Pathways - Level 0
 
-O Level 0 possui um sistema de underfloor cable raceway e 9 floor cable
-passageways distribuídos ao longo do piso.
+O Level 0 possui um sistema de underfloor cable raceway e vários floor cable passageways distribuídos ao longo do piso.
 
-A solução adotada foi encaminhar os cabos de cada sala até ao floor cable
-passageway mais próximo. A partir desse ponto, os cabos seguem pelo
-underfloor cable raceway até ao Horizontal Cross-Connect localizado na
-Room 18.
+Os cabos provenientes das salas são encaminhados até ao floor cable passageway mais próximo, a partir do qual seguem pelo sistema de underfloor raceway até ao Horizontal Cross-Connect correspondente.
 
-Esta abordagem permite reduzir o comprimento médio da cablagem horizontal
-e aproveitar melhor a infraestrutura já existente no piso.
+Para os **wireless access points**, os cabos percorrem inicialmente o espaço do dropped ceiling, podendo passar por consolidation points que facilitam a distribuição da cablagem no teto.
 
-No caso dos access points, os cabos partem da zona do dropped ceiling,
-descem até ao pathway mais próximo e seguem depois até ao HC através
-do raceway.
+Esta abordagem permite reduzir o comprimento médio da cablagem e aproveitar a infraestrutura existente no edifício.
 
 ---
 
@@ -170,14 +147,6 @@ do raceway.
 | | | | |
 | | | | |
 | | | | |
-
----
-
-## Access Points
-
-| Piso | AP1 | AP2 | AP3 |
-|-----|-----|-----|-----|
-| Level 0 | | | |
 
 ---
 
