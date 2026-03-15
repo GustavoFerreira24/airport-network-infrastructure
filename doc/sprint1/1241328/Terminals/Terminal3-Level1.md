@@ -1,164 +1,220 @@
-# Terminal 2 – Level 1
+# <span style="color: #E67E22">Terminal 3 – Level 2</span>
 
-## Descrição do Piso
+## <span style="color: #1F4E79">Descrição do Piso</span>
 
-O Level 1 do Terminal 2 corresponde à zona de Arrivals do terminal.
+O **Level 2 do Terminal 3** corresponde à zona de **Arrivals**.
 
-Este piso possui uma infraestrutura preparada para suportar a instalação de cablagem de rede. Ao longo do piso existe um underfloor cable raceway, que permite a 
-passagem de cabos por baixo do chão e facilita a distribuição da cablagem entre as diferentes salas do terminal.
+Este piso possui dimensões aproximadas de **200 m × 200 m**.
 
-Este sistema encontra-se também ligado a uma external technical ditch, o que permite a ligação da infraestrutura de rede do edifício a outras infraestruturas externas.
+Este piso possui:
 
-Na planta estão identificados vários pontos de acesso ao raceway, que permitem encaminhar os cabos provenientes das diferentes salas até ao sistema principal de cablagem.
+- **Underfloor cable raceway** para encaminhamento de cabos por baixo do chão.
+- **Floor cable passageways** que ligam as salas ao raceway principal.
+- **4 vertical cable passageways** para ligação entre os diferentes níveis do terminal.
+- **Dropped ceiling a 4 metros**, utilizado para a instalação de wireless access points e cablagem de backbone.
 
-Existem ainda quatro vertical cable passageways que percorrem os vários pisos do edifício e que permitem a ligação da infraestrutura de rede entre diferentes níveis do 
-terminal.
-
-O piso possui também um dropped ceiling localizado a aproximadamente 4 metros do chão, criando um espaço técnico adequado para a instalação de cabos de rede e 
-equipamentos como wireless access points.
+A infraestrutura encontra-se ligada à **external technical ditch**, permitindo a ligação à rede externa do campus do aeroporto.
 
 ---
 
-## Regras Especiais do Piso
+## <span style="color: #1F4E79">Network Outlets</span>
 
-De acordo com o enunciado do projeto, algumas salas do Level 1 possuem requisitos específicos relativamente à instalação de network outlets.
+### Regras de Instalação
 
-As salas destinadas a áreas de trabalho devem possuir o número padrão de network outlets, calculado com base na densidade de cablagem definida para o projeto.
-
-Por outro lado, algumas salas correspondem a zonas de circulação, instalações técnicas ou áreas de apoio, pelo que não necessitam de network outlets.
-
-Além disso, algumas destas salas podem ser utilizadas para alojar infraestrutura de rede, como equipamentos de cross-connect, permitindo a instalação de armários de 
-telecomunicações e outros equipamentos necessários ao funcionamento da rede do piso.
-
----
+- Densidade padrão: **2 network outlets por cada 10 m²** de área.
+- Nas paredes exteriores **esquerda e superior** existe **1 outlet a cada 5 metros**.
 
 ### Salas com Network Outlets
-1, 2, 3, 4, 5, 7, 8
+2, 3, 4, 7, 10, 11, 12, 14, 15, 16, 17, 18, 19
 
 ### Salas sem Network Outlets
-6, 9, 10, 11, 12
+1, 5, 6, 8, 9, 13, 20
 
 ### Salas possíveis para Infraestrutura
-6, 11, 12
+1, 13, 20
 
 ---
 
-## Mediçōes das Salas
+## <span style="color: #1F4E79">Mediçōes das Salas</span>
 
-| Room | Length (m) | Width (m) | Area (m²) | Number of Outlets |
-|------|-----------:|----------:|----------:|------------------:|
-| 1    |      27.12 |     12.71 |    344.70 |                69 |
-| 2    |      21.19 |     12.71 |    269.32 |                54 |
-| 3    |      33.90 |     12.71 |    430.87 |                87 |
-| 4    |      38.98 |     12.71 |    495.44 |               100 |
-| 5    |      33.90 |     12.71 |    430.87 |                87 |
-| 7    |      27.96 |     15.57 |    435.33 |                88 |
-| 8    |      27.96 |     15.57 |    435.33 |                88 |
-
----
-
-## Localização do Horizontal Cross-Connect (HC)
-
-O HC do Level 1 foi colocado na Room 12.
-
-Esta sala foi escolhida por se encontrar próxima de duas vertical cable passageways, facilitando a ligação ao backbone 
-do edifício e a interligação entre pisos.
-
-Além disso, a Room 12 localiza-se junto à parede exterior direita e à parede inferior do piso, onde o enunciado exige a 
-instalação de network outlets adicionais a cada cinco metros, permitindo reduzir o comprimento médio da cablagem 
-necessária para esses pontos.
-
----
-
-## Deployment de Network Outlets 
-
-A distribuição dos network outlets foi definida de forma a garantir acessibilidade adequada a pontos de rede em todo o 
-piso.
-
-Nas salas que requerem outlets, estes foram distribuídos ao longo das paredes e dimensionados segundo a densidade padrão 
-de cablagem estruturada de **2 network outlets por cada 10 m²** de área.
-
-Foram também instalados outlets adicionais ao longo da parede exterior direita e da parede inferior do piso, com uma 
-densidade de **um outlet a cada cinco metros**.
+| Room   | Width (m) | Length (m) | Area (m²) | Number of Outlets |
+|--------|-----------|------------|-----------|-------------------|
+| 3.2.1  | 13.11     | 7.38       | 96.75     | Not Required      |
+| 3.2.2  | 22.95     | 12.30      | 282.18    | 56                |
+| 3.2.3  | 13.11     | 40.98      | 537.49    | 107               |
+| 3.2.4  | 22.95     | 12.30      | 282.18    | 56                |
+| 3.2.5  | 20.50     | 14.75      | 302.34    | Not Required      |
+| 3.2.6  | 23.77     | 14.75      | 350.71    | Not Required      |
+| 3.2.7  | 12.30     | 27.05      | 332.57    | 66                |
+| 3.2.8  | 20.50     | 14.75      | 302.34    | Not Required      |
+| 3.2.9  | 23.77     | 14.75      | 350.71    | Not Required      |
+| 3.2.10 | 13.11     | 42.62      | 559.00    | 111               |
+| 3.2.11 | 20.49     | 13.93      | 285.54    | 57                |
+| 3.2.12 | 18.03     | 13.93      | 251.27    | 50                |
+| 3.2.13 | 9.84      | 9.84       | 96.75     | Not Required      |
+| 3.2.14 | 12.30     | 31.97      | 393.04    | 78                |
+| 3.2.15 | 12.30     | 37.70      | 463.59    | 92                |
+| 3.2.16 | 12.30     | 26.23      | 322.50    | 64                |
+| 3.2.17 | 12.30     | 22.13      | 272.10    | 54                |
+| 3.2.18 | 12.30     | 31.97      | 393.04    | 78                |
+| 3.2.19 | 12.30     | 21.31      | 262.03    | 52                |
+| 3.2.20 | 12.30     | 9.84       | 120.94    | Not Required      |
 
 ---
 
-## Deployment of Hardware
+## <span style="color: #1F4E79">Cross-Connect Infrastructure</span>
 
-### Structured Cabling Layout – Level 1
+### Horizontal Cross-Connects (HC)
+Foram instalados **5 HCs** no piso para garantir que a cablagem não excede os limites técnicos:
+- **HC1** – Room 1
+- **HC2** – Room 3
+- **HC3** – Room 10
+- **HC4** – Room 13
+- **HC5** – Room 20
 
-The following diagram shows the placement of the HC, network outlets,
-cable pathways and wireless access points across the floor.
-
-![Structured Cabling](images/T2-L1-Cabling.png)
-
-
-### Cable Pathways
-
-Cables from each room are routed to the nearest **floor cable passageway**.
-From there, they follow the **underfloor cable raceway** to the
-Horizontal Cross-Connect located in **Room 12**.
-
-Wireless access points are installed above the **dropped ceiling**
-and connected to the HC through the nearest pathway.
-
-
-### Cable Length Estimation
-
-| Room | HC → Passageway | Outlets → Passageway | Total |
-|------|-----------------|----------------------|-------|
-|      |                 |                      |       |
-|      |                 |                      |       |
-|      |                 |                      |       |
-
-
-### Total Cabling – Level 1
-
-CAT7:
-
-Monomode Fibre:
-
-### Wireless Access Points – Level 1
-
-Access points were distributed across the ceiling to ensure
-full wireless coverage of the terminal floor.
-
-![Wireless Coverage](../images/L1-WirelessCoverage.png)
-
+### Intermediate Cross-Connect (IC)
+O **IC encontra-se na Room 20**. Esta sala foi selecionada pela sua proximidade a duas **vertical cable passageways**, facilitando a interligação vertical e a ligação ao backbone central do edifício.
 
 ---
 
+## <span style="color: #1F4E79">Wireless Network</span>
 
-## Inventário de Hardware 
+### Wireless Coverage
+A cobertura wireless é garantida por **28 wireless access points** instalados no espaço do **dropped ceiling**, assegurando sinal em toda a área de Arrivals e evitando zonas mortas através de sobreposição estratégica.
 
-| Network Outlets | Cabo CAT7 | Monomode 10 | Patch Panels (48) | Patch Panels (24) | Switch | Access Points | IC | HC |
-|-----------------|-----------|-------------|-------------------|-------------------|--------|---------------|----|----|
-|                 |           |             |                   |                   |        |               |    |    |
-
----
-
-## Sala de Infraestrutura
-
-*(sala escolhida para HC / rack)*
-
-| Patch Panel | Size (U) | Switch (U) | Final Size (U) |
-|-------------|----------|------------|----------------|
-|             |          |            |                |
+![T3 - Level 2 Wi-Fi Coverage](../images/T3%20-%20Level%202%20Wi-Fi%20Coverage.png)
 
 ---
 
-## Dimensionamento do Rack
+## <span style="color: #1F4E79">Cabling Infrastructure</span>
 
-*(cálculo do tamanho necessário do telecom enclosure)*
+### Structured Cabling Layout
+Os cabos de cada sala são encaminhados para o **Horizontal Cross-Connect** mais próximo, quer através do **underfloor cable raceway** ou pelo **teto**, dependendo da localização da sala e do HC.
+
+Os pontos de acesso sem fios são instalados acima do **teto falso** e ligados ao HC através de cabos **Cat 7** no teto.
+
+![T3 - Level 2.png](../images/T3%20-%20Level%202.png)
+
+---
+
+### IC (in room 20) → HCs (Fibre Backbone)
+| To HC                   | Length of Fibre (m) |
+|:------------------------|:--------------------|
+| HC1 - Room 1            |                     |
+| HC2 - Room 3 (ceiling)  |                     |
+| HC3 - Room 10 (ceiling) |                     |
+| HC4 - Room 13 (ceiling) |                     |
+| HC5 - Room 20           |                     |
+| **Total**               |                     |
+---
+
+## <span style="color: #1F4E79">Rack Dimensionament (Room 20)</span>
+
+| Equipamento                   | Unidades (U) |
+|:------------------------------|:-------------|
+| Patch Panels (Dados/APs)      | U            |
+| Switches                      | U            |
+| Fiber Patch Panel             | U            |
+| Organizadores de Cabos        | U            |
+| **Tamanho Final Recomendado** |              |
+
+---
+
+## <span style="color: #1F4E79">Horizontal Cross-Connect Details</span>
+
+### HC1 (in room 1) ###
+|           To Room or Ap           | Length of CAT7 (m) |                     
+|:---------------------------------:|:------------------:|
+|  Room 2 - floor cable passageway  |                    |
+| Exterior Wall Outlets (Left side) |                    |       
+| Exterior Wall Outlets (Top side)  |                    |     
+|         Access Points 1-5         |                    |
+|             **Total**             |                    |
+
+### HC2 (in room 3) ###
+|          To Room or Ap          | Length of CAT7 (m) |                     
+|:-------------------------------:|:------------------:|
+| Room 3 - floor cable passageway |                    |
+| Room 4 - floor cable passageway |                    |       
+|       Access Points 5-12        |                    |
+|            **Total**            |                    |
+
+### HC3 (in room 10) ###
+|          To Room or Ap           | Length of CAT7 (m) |                     
+|:--------------------------------:|:------------------:|
+| Room 7 - floor cable passageway  |                    |
+| Room 10 - floor cable passageway |                    |
+|         Access Points            |                    |
+|            **Total**             |                    |
+
+### HC4 (in room 13) ###
+|          To Room or Ap           | Length of CAT7 (m) |                     
+|:--------------------------------:|:------------------:|
+| Room 11 - floor cable passageway |                    |   
+| Room 12 - floor cable passageway |                    | 
+| Room 14 - floor cable passageway |                    |
+|       Access Points 18-22        |                    | 
+|            **Total**             |                    |
+
+### HC5 (in room 20) ###
+|          To Room or Ap           | Length of CAT7 (m) |                     
+|:--------------------------------:|:------------------:|
+| Room 15 - floor cable passageway |                    |   
+| Room 16 - floor cable passageway |                    | 
+| Room 17 - floor cable passageway |                    |
+| Room 18 - floor cable passageway |                    |
+| Room 19 - floor cable passageway |                    |
+|       Access Points 23-27        |         -          |
+|            **Total**             |                    |
+
+---
+
+## <span style="color: #1F4E79">Detailed Outlet Cabling Calculations</span>
+
+### Room 2 (56 outlets)
+ 
+
+### Room 3 (107 outlets)
+ 
+
+### Room 4 (56 outlets)
+ 
+
+### Room 7 (66 outlets)
+ 
+
+### Room 10 (111 outlets)
+ 
+
+### Room 11 (57 outlets)
+ 
+
+### Room 12 (50 outlets)
+ 
+
+### Room 14 (78 outlets)
+ 
+
+### Room 15 (92 outlets)
+ 
+
+### Room 16 (64 outlets)
+ 
+
+### Room 17 (54 outlets)
+ 
+
+### Room 18 (78 outlets)
+ 
+
+### Room 19 (52 outlets)
+
+---
+## <span style="color: #1F4E79">Hardware Inventory</span>
+
+| Network Outlets | CAT7 Cables Length | Monomode Fibre Length | Patch Panels (48) | Access Points | IC | HC |
+|:---------------:|:------------------:|:---------------------:|:-----------------:|:-------------:|:--:|:--:|
+|                 |                    |                       |                   |               |    |    |
 
 
-
-
-
-
-
-
-# Conclusão
-
-*(síntese do projeto desenvolvido)*
 
