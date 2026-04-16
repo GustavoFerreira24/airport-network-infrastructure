@@ -274,6 +274,6 @@ A cobertura wireless foi garantida através da instalação de **32 wireless acc
 
 ## <span style="color: #1F4E79">Hardware Inventory</span>
 
-| Network Outlets | CAT7 Cables Length | Monomode 10 Cables Length | Patch Panels (cobre) | Patch Panels (fibra) | Access Point | IC | HC | CP|
-|:---------------:|:------------------:|:-------------------------:|:--------------------:|:--------------------:|:------------:|:--:|:--:|:--:|
-|       643       |      10187.21      |           752.69          |          5           |          6           |      31      | 1  | 5  | 26 |
+| Network Outlets | CAT7 Cables Length | Multimode 10 Cables Length | Patch Panels (cobre) | Patch Panels (fibra) | Access Point | IC | HC | CP|
+|:---------------:|:------------------:|:--------------------------:|:--------------------:|:--------------------:|:------------:|:--:|:--:|:--:|
+|       643       |      10187.21      |           752.69           |          5           |          6           |      31      | 1  | 5  | 26 |
