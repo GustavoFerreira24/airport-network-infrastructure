@@ -4,7 +4,7 @@
 
 ---
 
-# <span style="color: #1F4E79">1. Sprint's backlog</span>
+# <span style="color: #1F4E79">1. Sprint backlog and coordination</span>
 
 The goal of Sprint 2 is to create a **Cisco Packet Tracer network simulation** based on the structured cabling project developed in Sprint 1.  
 This sprint focuses on:
@@ -15,36 +15,65 @@ This sprint focuses on:
 - **IPv4 addressing**
 - **Static routing**
 
-Each team member continues working on the **same terminal assigned in Sprint 1**.  
-Each individual simulation must include:
+---
 
-- the member's own terminal
-- the **campus backbone**
-- a switch representing the **main cross-connect**
-- switches representing the other terminals in the backbone structure
+## <span style="color: #595959">Sprint tasks and distribution</span>
+
+Each team member continues working on the **same terminal assigned in Sprint 1**.
 
 For teams with **4 members**, the sprint backlog includes:
 
-- **T.2.1** – Development of a layer two and layer three Packet Tracer simulation for **Terminal 2**, the campus backbone, and the internet connection
-- **T.2.2** – Development of a layer two and layer three Packet Tracer simulation for **Terminal 3**, the campus backbone, and integration of all members' simulations into a single **campus.pkt**
-- **T.2.3** – Development of a layer two and layer three Packet Tracer simulation for **Terminal 5** and the campus backbone
-- **T.2.4** – Development of a layer two and layer three Packet Tracer simulation for **Terminal 4** and the campus backbone
 
-Main outputs required for each member:
+| Member             | Task  | Description                                                                                                                                               |
+|--------------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [1241129](1241129) | T.2.1 | Development of a layer two and layer three Packet Tracer simulation for **Terminal 2**, the campus backbone, and the internet connection                  |
+| [1241328](1241328) | T.2.2 | Development of a layer two and layer three Packet Tracer simulation for **Terminal 3**, the campus backbone, and integration into a single **campus.pkt** |
+| [1240901](1240901) | T.2.4 | Development of a layer two and layer three Packet Tracer simulation for **Terminal 5** and the campus backbone                                            |
+| [1241039](1241039) | T.2.3 | Development of a layer two and layer three Packet Tracer simulation for **Terminal 4** and the campus backbone                                            |
+
+---
+
+## <span style="color: #595959">Coordination rules</span>
+- Each member continues the work of the same terminal from Sprint 1
+- All members must keep consistent:
+  - Packet Tracer version
+  - VLAN database
+  - VTP domain
+  - naming conventions
+  - addressing logic
+- The member responsible for **Terminal 3** will integrate all simulations into a single **campus.pkt**
+- Any incomplete work from Sprint 1 remains assigned to the same member
+
+---
+
+## <span style="color: #595959">Expected outputs</span>
+
+Each member must deliver:
 
 - the corresponding Packet Tracer simulation file (`TerminalN.pkt`)
 - a document explaining the adopted **IPv4 addressing** and **static routing**
-- configuration dump files for **all switches and routers** in the member's terminal
+- configuration dump files for **all switches and routers**
 
-For Terminal 3, there is one additional required output:
+Additionally, for Terminal 3:
 
 - the integrated simulation file **`campus.pkt`**
 
 ---
 
-### Sprint 1 pending tasks
+## <span style="color: #595959">Sprint 1 status</span>
 
-After reviewing all Sprint 1 deliverables, no pending corrections or incomplete tasks were identified. All team members' work from Sprint 1 was assessed as fully implemented with no issues. No additional corrective work is required during this sprint.
+The structured cabling design developed in Sprint 1 serves as the basis for the network topology used in this sprint.
+
+However, the **campus backbone designs was not defined in Sprint 1** and must now be designed and implemented as part of Sprint 2.
+
+Additionally, a correction to the fibre usage defined in Sprint 1 is required:
+
+- In Sprint 1, fibre connections within terminals were represented using a single fibre type
+- In Sprint 2, fibre usage is refined as follows:
+  - **Multimode fibre** is used for intra-terminal connections (e.g., IC–HC links)
+  - **Single-mode fibre** is used exclusively for inter-terminal backbone connections (MC–MC links)
+
+All team members must update their designs accordingly to ensure consistency across the project.
 
 ---
 
@@ -55,7 +84,7 @@ After reviewing all Sprint 1 deliverables, no pending corrections or incomplete 
 All team members must use the **same Packet Tracer version**, to avoid compatibility issues when merging all simulations into a single final file.
 
 **Adopted version:**  
-`[Cisco Packet Tracer 9.0.0]`
+`Cisco Packet Tracer 9.0.0`
 
 ---
 
@@ -117,7 +146,37 @@ The following decisions were adopted:
 
 ---
 
-## <span style="color: #595959">Spanning Tree Protocol (STP)</span> 
+## <span style="color: #595959">Switch module selection</span>
+
+All switches use the **PT-Empty** model. The modules to add depend on the type of link and location of the switch.
+
+### Available modules and their use
+
+| Module               | Media             | Speed           | Use in this project                   |
+|----------------------|-------------------|-----------------|---------------------------------------|
+| PT-SWITCH-NM-1CFE    | Copper            | FastEthernet    | Extra copper ports if needed          |
+| PT-SWITCH-NM-1FFE    | Fibre multimode   | FastEthernet    | Intra-terminal fibre links (IC-HC)    |
+| PT-SWITCH-NM-1FFE-SM | Fibre single mode | FastEthernet    | Inter-terminal backbone links (MC-MC) |
+| PT-SWITCH-NM-1FGE-SM | Fibre single mode | GigabitEthernet | Not used in this project              |
+
+### Decision rationale
+
+- **Within a terminal** (IC-HC links): distances are short (under 300 m), so **multimode fibre** is sufficient and more cost-effective. Use **PT-SWITCH-NM-1FFE**.
+- **Between terminals** (backbone MC-MC links): distances may exceed 2 km, requiring **single mode fibre** for reliable transmission. Use **PT-SWITCH-NM-1FFE-SM**.
+- **HC-CP and CP↔outlets**: copper CAT7 as defined in Sprint 1. The PT-Empty's built-in copper ports are sufficient; no extra modules needed in most cases.
+
+### Modules per switch type
+
+| Switch type             | Links                                                          | Modules to add                                  |
+|-------------------------|----------------------------------------------------------------|-------------------------------------------------|
+| **IC** (intra-terminal) | N HCs via multimode fibre + 1 link to MC via single mode fibre | N+1 × PT-SWITCH-NM-1FFE                         |
+| **MC** (backbone)       | Links to other terminals via single mode fibre                 | 1× PT-SWITCH-NM-1FFE-SM per inter-terminal link |
+| **HC**                  | 1 IC via multimode fibre + CPs via copper (built-in ports)     | 1× PT-SWITCH-NM-1FFE                            |
+| **CP**                  | 1 HC via copper + outlets via copper (all built-in ports)      | none                                            |
+
+---
+
+## <span style="color: #595959">Spanning Tree Protocol (STP)</span>
 
 STP is enabled by default on all Cisco switches and must remain active.  
 **No switch may have STP disabled**, particularly in topologies with redundant links between switches of the same level, where STP is essential to prevent switching loops.
@@ -208,7 +267,7 @@ Each terminal must include **one router**, and the **only permitted model** is:
 
 Each router will:
 
-- connect the local VLANs of the terminal
+- connect the local VLANs of the terminal via **subinterfaces** on a single trunk link to the terminal's switch infrastructure
 - connect the terminal to the **Campus Backbone**
 - support inter-VLAN routing through **subinterfaces**
 
@@ -349,34 +408,3 @@ Terminal 2 includes an internet connection represented by a DSL modem connected 
 **ISP router IPv4 node address (team-assigned):** `89.73.67.238/30`
 
 The ISP router must have a static routing table configured to forward traffic matching the team's address block (`10.76.128.0/17`) into the infrastructure.
-
----
-
-### Coordination rules
-
-- Each member continues the work of the same terminal from Sprint 1
-- All members must keep consistent:
-  - Packet Tracer version
-  - VLAN database
-  - VTP domain
-  - naming conventions
-  - addressing logic
-- The member responsible for **Terminal 3** will integrate all simulations into a single `campus.pkt`
-- Any task from Sprint 1 not assessed as fully completed must be corrected by the same member during this sprint
-
----
-
-# <span style="color: #1F4E79">3. Subtasks assignment</span>
-
-The task distribution follows the same terminal assignment from Sprint 1.
-
-| Member  | Task  | Description                                                                                   |
-|---------|-------|-----------------------------------------------------------------------------------------------|
-| 1241129 | T.2.1 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 2**, campus backbone, and internet connection |
-| 1241328 | T.2.2 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 3**, campus backbone, and integration into **campus.pkt** |
-| 1240901 | T.2.4 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 4** and campus backbone           |
-| 1241039 | T.2.3 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 5** and campus backbone           |
-
-### Additional note
-
-Any pending corrections or incomplete work from Sprint 1 must remain assigned to the same team member responsible for that terminal.
