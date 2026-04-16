@@ -50,7 +50,7 @@ After reviewing all Sprint 1 deliverables, no pending corrections or incomplete 
 
 # <span style="color: #1F4E79">2. Technical decisions and coordination</span>
 
-## Packet Tracer version
+## <span style="color: #595959">Packet Tracer version</span>
 
 All team members must use the **same Packet Tracer version**, to avoid compatibility issues when merging all simulations into a single final file.
 
@@ -59,7 +59,7 @@ All team members must use the **same Packet Tracer version**, to avoid compatibi
 
 ---
 
-## Devices naming
+## <span style="color: #595959">Devices naming</span> 
 
 To ensure consistency across all simulations, the team agreed to use meaningful and standardized device names.
 
@@ -90,19 +90,18 @@ Naming legend:
 - `Ln` → Level/Floor number (e.g., L0, L1, L2)
 - `n` → Sequential number of the device within that category
 
-End devices types
+End devices types:
 
-| Type | Description |
-|------|------------|
-| `PC` | Workstation (User VLAN / Switches DMZ) |
-| `SRV` | Server (Servers DMZ) |
-| `LAP` | Wireless Laptop (Wi-Fi VLAN) |
-| `PH` | VoIP Phone |
-
+| Type  | Description                         |
+|-------|-------------------------------------|
+| `PC`  | Workstation (User VLAN / Switches DMZ) |
+| `SRV` | Server (Servers DMZ)                |
+| `LAP` | Wireless Laptop (Wi-Fi VLAN)        |
+| `PH`  | VoIP Phone                          |
 
 ---
 
-## Layer 2 representation rules
+## <span style="color: #595959">Layer 2 representation rules</span>
 
 The simulation must be **logical and representative**, not a full physical copy of the cabling plan.
 
@@ -118,7 +117,14 @@ The following decisions were adopted:
 
 ---
 
-## VLANs
+## <span style="color: #595959">Spanning Tree Protocol (STP)</span> 
+
+STP is enabled by default on all Cisco switches and must remain active.  
+**No switch may have STP disabled**, particularly in topologies with redundant links between switches of the same level, where STP is essential to prevent switching loops.
+
+---
+
+## <span style="color: #595959">VLANs</span>
 
 All switches in all terminals must contain the **same VLAN database**, even if some VLANs are not locally used in that terminal.
 
@@ -146,7 +152,7 @@ The team agreed to keep **VLAN 1** as both the **default VLAN** and the **native
 Naming structure:
 
 
-| VLAN ID | Name            | Description                | IPv4           |
+| VLAN ID | Name            | Description                | IPv4 Network   |
 |:-------:|-----------------|----------------------------|----------------|
 |   799   | CAMPUS_BACKBONE | Backbone between terminals | 10.76.210.0/24 |
 |   800   | SWITCHES_DMZ    | Switches Management        | 10.76.208.0/23 |
@@ -177,22 +183,22 @@ Naming structure:
 
 ---
 
-## VTP
+## <span style="color: #595959">VTP</span>  VTP
 
 To guarantee VLAN consistency across all switches, the team will use **VTP**.
 
 The following decisions were adopted:
 
-- all switches will use the **same VTP domain**
-- at least one switch per simulation will operate in **VTP server mode**
-- remaining switches will operate in **VTP client mode**
-- inter-switch links must be configured in **trunk mode**
+- All switches will use the **same VTP domain**
+- At least one switch per simulation will operate in **VTP server mode**
+- Remaining switches will operate in **VTP client mode**
+- Inter-switch links must be configured in **trunk mode**
 
 **VTP domain:** `rc2526dig4`
 
 ---
 
-## Routers and inter-VLAN routing
+## <span style="color: #595959">Routers and inter-VLAN routing</span> 
 
 Each terminal must include **one router**, and the **only permitted model** is:
 
@@ -205,11 +211,20 @@ Each router will:
 - connect the local VLANs of the terminal
 - connect the terminal to the **Campus Backbone**
 - support inter-VLAN routing through **subinterfaces**
-- use a **single trunk link** to the terminal switch infrastructure
+
+### Router subinterface IP addresses
+
+Each router subinterface will use the **first usable IP address** of the corresponding subnet as its IP address. This address also serves as the **default gateway** for all end devices on that VLAN.
+
+For example, for a subnet `10.76.168.0/22`, the router subinterface IP will be `10.76.168.1` and this is the default gateway for all devices on that VLAN.
+
+### Configuration of routers outside the local terminal
+
+In each simulation, routers representing terminals other than the one being developed must be present in the campus backbone. However, **their configuration must be limited to the backbone subinterface only** — that is, only the connection to VLAN 799 (CAMPUS_BACKBONE) and the corresponding IP address. Full configuration of each terminal's router is the responsibility of the team member assigned to that terminal.
 
 ---
 
-## End devices required per terminal
+## <span style="color: #595959">End devices required per terminal</span>
 
 For each terminal simulation, there must be at least:
 
@@ -221,101 +236,111 @@ For each terminal simulation, there must be at least:
 
 Additional decisions:
 
-- all devices except VoIP phones will use **static IPv4 configuration**
-- the VoIP phone port must use:
+- All devices except VoIP phones will use **static IPv4 configuration**
+- The VoIP phone port must use:
   - `switchport mode access`
   - `no switchport access vlan`
   - `switchport voice vlan ...`
 
 ---
 
-## IPv4 planning
+## <span style="color: #595959">IPv4 planning</span> 
 
 All IPv4 networks used in the project were derived from the team assigned block and sized according to the maximum number of nodes required for each VLAN, as specified in the project statement.
 
 All network addresses are non-overlapping and belong to the assigned address block.
 
-
-**Team IPv4 block:** 10.76.128.0/17
-
+**Team IPv4 block:** `10.76.128.0/17`
 
 ### Global allocation
 
-- Terminal 5 block: 10.76.128.0/19
-- Terminal 2 block: 10.76.160.0/20
-- Terminal 3 block: 10.76.176.0/20
-- Terminal 4 block: 10.76.192.0/20
-- Switches DMZ: 10.76.208.0/23
-- Campus Backbone: 10.76.210.0/24
+| Block            | Assignment        |
+|------------------|-------------------|
+| 10.76.128.0/19   | Terminal 5        |
+| 10.76.160.0/20   | Terminal 2        |
+| 10.76.176.0/20   | Terminal 3        |
+| 10.76.192.0/20   | Terminal 4        |
+| 10.76.208.0/23   | Switches DMZ      |
+| 10.76.210.0/24   | Campus Backbone   |
 
-#### Switches DMZ allocation
-
-Global Switches DMZ network: 10.76.208.0/23
-
-Because each IC, HC and CP is represented by one switch in the simulation, the number of switches per terminal is:
-
-- Terminal 2: 2 IC + 10 HC + 58 CP = 70 switches
-- Terminal 3: 1 IC + 5 HC + 6 CP = 12 switches
-- Terminal 4: 2 IC + 6 HC + 41 CP = 49 switches
-- Terminal 5: 2 IC + 16 HC + 56 CP = 74 switches
-
-#### Per-terminal Switches DMZ IP ranges
-
-| Terminal | Block           | Usable range                              | Capacity |
-|:--------:|-----------------|-------------------------------------------|:--------:|
-| T5       | 10.76.208.0/25  | 10.76.208.1 – 10.76.208.126               | 126      |
-| T2       | 10.76.208.128/25| 10.76.208.129 – 10.76.208.254             | 126      |
-| T4       | 10.76.209.0/26  | 10.76.209.1 – 10.76.209.62               | 62       |
-| T3       | 10.76.209.64/28 | 10.76.209.65 – 10.76.209.78              | 14       |
-
-Each terminal's switches must be assigned addresses exclusively within the range shown above.
-
-#### Per-terminal allocation
-
-- Terminal 5 switches: 10.76.208.0/25
-- Terminal 2 switches: 10.76.208.128/25
-- Terminal 4 switches: 10.76.209.0/26
-- Terminal 3 switches: 10.76.209.64/28
+---
 
 ### Campus Backbone router addresses
 
-- T2 router: 10.76.210.1/24
-- T3 router: 10.76.210.2/24
-- T4 router: 10.76.210.3/24
-- T5 router: 10.76.210.4/24
+| Terminal | Router backbone IP |
+|:--------:|--------------------|
+| T2       | 10.76.210.1/24     |
+| T3       | 10.76.210.2/24     |
+| T4       | 10.76.210.3/24     |
+| T5       | 10.76.210.4/24     |
 
+---
 
-### Terminal 2 allocation
+### Switches DMZ allocation
 
-- T2_WIFI: 10.76.160.0/21
-- T2_USERS: 10.76.168.0/22
-- T2_VOIP: 10.76.172.0/23
-- T2_SERVERS: 10.76.174.0/25
+Global Switches DMZ network: `10.76.208.0/23`
 
+Number of switches per terminal (IC + HC + CP):
 
-### Terminal 3 allocation
+| Terminal | Switches count              |
+|:--------:|-----------------------------|
+| T2       | 2 IC + 10 HC + 58 CP = 70   |
+| T3       | 1 IC + 5 HC + 6 CP = 12     |
+| T4       | 2 IC + 6 HC + 41 CP = 49    |
+| T5       | 2 IC + 16 HC + 56 CP = 74   |
 
-- T3_WIFI: 10.76.176.0/21
-- T3_USERS: 10.76.184.0/22
-- T3_VOIP: 10.76.188.0/23
-- T3_SERVERS: 10.76.190.0/24
+#### Per-terminal Switches DMZ IP ranges
 
+| Terminal | Block             | Usable IP range                   | Capacity |
+|:--------:|-------------------|-----------------------------------|:--------:|
+| T5       | 10.76.208.0/25    | 10.76.208.1 – 10.76.208.126       | 126      |
+| T2       | 10.76.208.128/25  | 10.76.208.129 – 10.76.208.254     | 126      |
+| T4       | 10.76.209.0/26    | 10.76.209.1 – 10.76.209.62        | 62       |
+| T3       | 10.76.209.64/28   | 10.76.209.65 – 10.76.209.78       | 14       |
 
-### Terminal 4 allocation
+Each terminal's switches must be assigned addresses exclusively within the range shown above, starting from the first usable address and incrementing sequentially.
 
-- T4_WIFI: 10.76.192.0/21
-- T4_USERS: 10.76.200.0/22
-- T4_VOIP: 10.76.204.0/23
-- T4_SERVERS: 10.76.206.0/25
+---
 
+### Per-terminal VLAN allocation
 
-### Terminal 5 allocation
+#### Terminal 2
 
-- T5_WIFI: 10.76.128.0/20
-- T5_USERS: 10.76.144.0/21
-- T5_VOIP: 10.76.152.0/23
-- T5_SERVERS: 10.76.154.0/24
+| VLAN         | Network           | Gateway (router subinterface) |
+|--------------|-------------------|-------------------------------|
+| T2_WIFI      | 10.76.160.0/21    | 10.76.160.1                   |
+| T2_USERS     | 10.76.168.0/22    | 10.76.168.1                   |
+| T2_VOIP      | 10.76.172.0/23    | 10.76.172.1                   |
+| T2_SERVERS   | 10.76.174.0/25    | 10.76.174.1                   |
 
+#### Terminal 3
+
+| VLAN         | Network           | Gateway (router subinterface) |
+|--------------|-------------------|-------------------------------|
+| T3_WIFI      | 10.76.176.0/21    | 10.76.176.1                   |
+| T3_USERS     | 10.76.184.0/22    | 10.76.184.1                   |
+| T3_VOIP      | 10.76.188.0/23    | 10.76.188.1                   |
+| T3_SERVERS   | 10.76.190.0/24    | 10.76.190.1                   |
+
+#### Terminal 4
+
+| VLAN         | Network           | Gateway (router subinterface) |
+|--------------|-------------------|-------------------------------|
+| T4_WIFI      | 10.76.192.0/21    | 10.76.192.1                   |
+| T4_USERS     | 10.76.200.0/22    | 10.76.200.1                   |
+| T4_VOIP      | 10.76.204.0/23    | 10.76.204.1                   |
+| T4_SERVERS   | 10.76.206.0/25    | 10.76.206.1                   |
+
+#### Terminal 5
+
+| VLAN         | Network           | Gateway (router subinterface) |
+|--------------|-------------------|-------------------------------|
+| T5_WIFI      | 10.76.128.0/20    | 10.76.128.1                   |
+| T5_USERS     | 10.76.144.0/21    | 10.76.144.1                   |
+| T5_VOIP      | 10.76.152.0/23    | 10.76.152.1                   |
+| T5_SERVERS   | 10.76.154.0/24    | 10.76.154.1                   |
+
+---
 
 ### Internet connection (Terminal 2)
 
@@ -323,7 +348,9 @@ Terminal 2 includes an internet connection represented by a DSL modem connected 
 
 **ISP router IPv4 node address (team-assigned):** `89.73.67.238/30`
 
-The ISP router must have a static routing table configured to forward traffic matching the team's address block into the infrastructure.
+The ISP router must have a static routing table configured to forward traffic matching the team's address block (`10.76.128.0/17`) into the infrastructure.
+
+---
 
 ### Coordination rules
 
@@ -334,12 +361,8 @@ The ISP router must have a static routing table configured to forward traffic ma
   - VTP domain
   - naming conventions
   - addressing logic
-- The member responsible for **Terminal 3** will later integrate all simulations into a single `campus.pkt`
+- The member responsible for **Terminal 3** will integrate all simulations into a single `campus.pkt`
 - Any task from Sprint 1 not assessed as fully completed must be corrected by the same member during this sprint
-
-### Default gateways
-
-Each VLAN will use the first usable IP address of its subnet as the default gateway, configured on the router subinterfaces.
 
 ---
 
@@ -347,10 +370,12 @@ Each VLAN will use the first usable IP address of its subnet as the default gate
 
 The task distribution follows the same terminal assignment from Sprint 1.
 
-- **1241129** – Development of the layer two and layer three Packet Tracer simulation for **Terminal 2**, the campus backbone, and the internet connection
-- **1241328** – Development of the layer two and layer three Packet Tracer simulation for **Terminal 3**, the campus backbone, and integration of all members' simulations into **campus.pkt**
-- **1240901** – Development of the layer two and layer three Packet Tracer simulation for **Terminal 4** and the campus backbone
-- **1241039** – Development of the layer two and layer three Packet Tracer simulation for **Terminal 5** and the campus backbone
+| Member  | Task  | Description                                                                                   |
+|---------|-------|-----------------------------------------------------------------------------------------------|
+| 1241129 | T.2.1 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 2**, campus backbone, and internet connection |
+| 1241328 | T.2.2 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 3**, campus backbone, and integration into **campus.pkt** |
+| 1240901 | T.2.4 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 4** and campus backbone           |
+| 1241039 | T.2.3 | Layer 2 and layer 3 Packet Tracer simulation for **Terminal 5** and campus backbone           |
 
 ### Additional note
 

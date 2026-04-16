@@ -1,4 +1,4 @@
-RCOMP 2025-2026 Project 1 - Sprint 2 - Member 1241129 folder
+<span style="color: #E67E22">RCOMP 2025-2026 Project 1 - Sprint 2 - Member 1241129 folder</span>
 ===========================================
 (This folder is to be created/edited by the team member 1111111 only)
 
