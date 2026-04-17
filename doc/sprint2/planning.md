@@ -71,7 +71,7 @@ Additionally, a correction to the fibre usage defined in Sprint 1 is required:
 - In Sprint 1, fibre connections within terminals were represented using a single fibre type
 - In Sprint 2, fibre usage is refined as follows:
   - **Multimode fibre** is used for intra-terminal connections (e.g., IC–HC links)
-  - **Single-mode fibre** is used exclusively for inter-terminal backbone connections (MC–MC links)
+  - **Single-mode fibre** is used exclusively for inter-terminal backbone connections (MC–IC links)
 
 All team members must update their designs accordingly to ensure consistency across the project.
 
@@ -104,11 +104,11 @@ To ensure consistency across all simulations, the team agreed to use meaningful 
 
 ### Suggested naming convention
 
-- **Main cross-connect / terminal core switch:** `MC-Tn`
+- **Main cross-connect / terminal core switch:** `MC-Campus`
 - **Intermediate cross-connects:** `IC-Tn`
 - **Horizontal cross-connects:** `HCn-Ln-Tn`
 - **Consolidation points:** `CPn-Ln-Tn`
-- **Routers:** `RTn-Ln-Tn`
+- **Routers:** `RT-Tn`
 - **Switches:** `SWn-Ln-Tn`
 - **Access points:** `APn-Ln-Tn`
 - **End devices:** `<type>n-Ln-Tn`
@@ -162,7 +162,7 @@ All switches use the **PT-Empty** model. The modules to add depend on the type o
 ### Decision rationale
 
 - **Within a terminal** (IC-HC links): distances are short (under 300 m), so **multimode fibre** is sufficient and more cost-effective. Use **PT-SWITCH-NM-1FFE**.
-- **Between terminals** (backbone MC-MC links): distances may exceed 2 km, requiring **single mode fibre** for reliable transmission. Use **PT-SWITCH-NM-1FFE-SM**.
+- **Between terminals** (backbone MC-IC links): distances may exceed 2 km, requiring **single mode fibre** for reliable transmission. Use **PT-SWITCH-NM-1FFE-SM**.
 - **HC-CP and CP↔outlets**: copper CAT7 as defined in Sprint 1. The PT-Empty's built-in copper ports are sufficient; no extra modules needed in most cases.
 
 ### Modules per switch type
