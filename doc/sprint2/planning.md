@@ -111,7 +111,12 @@ To ensure consistency across all simulations, the team agreed to use meaningful 
 - **Routers:** `RT-Tn`
 - **Switches:** `SWn-Ln-Tn`
 - **Access points:** `APn-Ln-Tn`
-- **End devices:** `<type>n-Ln-Tn`
+- **PC:** `PCn-Ln-Tn`
+- **PC-DMZ:** `PC-DMZ-Ln-Tn`
+- **Server:** `SRVn-Ln-Tn`
+- **Laptop:** `LAPn-Ln-Tn`
+- **IP-Phone:** `PHn-Ln-Tn`
+
 
 Naming legend:
 
@@ -119,14 +124,6 @@ Naming legend:
 - `Ln` → Level/Floor number (e.g., L0, L1, L2)
 - `n` → Sequential number of the device within that category
 
-End devices types:
-
-| Type  | Description                         |
-|-------|-------------------------------------|
-| `PC`  | Workstation (User VLAN / Switches DMZ) |
-| `SRV` | Server (Servers DMZ)                |
-| `LAP` | Wireless Laptop (Wi-Fi VLAN)        |
-| `PH`  | VoIP Phone                          |
 
 ---
 
@@ -146,24 +143,23 @@ The following decisions were adopted:
 
 ---
 
-## <span style="color: #595959">Switch module selection</span>
+## <span style="color: #595959">Module selection</span>
 
 All switches use the **PT-Empty** model. The modules to add depend on the type of link and location of the switch.
 
-### Available modules and their use
+### Modules to be used:
 
 | Module               | Media             | Speed           | Use in this project                   |
 |----------------------|-------------------|-----------------|---------------------------------------|
 | PT-SWITCH-NM-1CFE    | Copper            | FastEthernet    | Extra copper ports if needed          |
 | PT-SWITCH-NM-1FFE    | Fibre multimode   | FastEthernet    | Intra-terminal fibre links (IC-HC)    |
 | PT-SWITCH-NM-1FFE-SM | Fibre single mode | FastEthernet    | Inter-terminal backbone links (MC-MC) |
-| PT-SWITCH-NM-1FGE-SM | Fibre single mode | GigabitEthernet | Not used in this project              |
 
 ### Decision rationale
 
 - **Within a terminal** (IC-HC links): distances are short (under 300 m), so **multimode fibre** is sufficient and more cost-effective. Use **PT-SWITCH-NM-1FFE**.
 - **Between terminals** (backbone MC-IC links): distances may exceed 2 km, requiring **single mode fibre** for reliable transmission. Use **PT-SWITCH-NM-1FFE-SM**.
-- **HC-CP and CP↔outlets**: copper CAT7 as defined in Sprint 1. The PT-Empty's built-in copper ports are sufficient; no extra modules needed in most cases.
+- **HC-CP and CP-outlets**: copper CAT7 as defined in Sprint 1. The PT-Empty's built-in copper ports are sufficient; no extra modules needed in most cases.
 
 ### Modules per switch type
 
@@ -173,6 +169,10 @@ All switches use the **PT-Empty** model. The modules to add depend on the type o
 | **MC** (backbone)       | Links to other terminals via single mode fibre                 | 1× PT-SWITCH-NM-1FFE-SM per inter-terminal link |
 | **HC**                  | 1 IC via multimode fibre + CPs via copper (built-in ports)     | 1× PT-SWITCH-NM-1FFE                            |
 | **CP**                  | 1 HC via copper + outlets via copper (all built-in ports)      | none                                            |
+
+### Modules in Laptop
+
+Use the PT-LAPTOP-NM-1W module to connect to the wireless network (Wi-Fi VLAN) in each terminal.
 
 ---
 
