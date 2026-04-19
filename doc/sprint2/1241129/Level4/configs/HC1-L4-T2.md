@@ -15,7 +15,7 @@ Run: **show running-config** after running **wr**
 
 ```cisco
 
-Current configuration : 1974 bytes
+Current configuration : 1946 bytes
 !
 version 12.1
 no service timestamps log datetime msec
@@ -46,7 +46,6 @@ interface FastEthernet0/1
 !
 interface FastEthernet1/1
  description Connection to CP1-L4-T2
- switchport access vlan 801
  switchport trunk allowed vlan 799-816
  switchport mode trunk
 !

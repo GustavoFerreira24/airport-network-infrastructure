@@ -24,7 +24,6 @@ spanning-tree extend system-id
 !
 interface FastEthernet0/1
  description Uplink to distribution switch
- switchport access vlan 809
  switchport mode trunk
 !
 interface FastEthernet1/1
