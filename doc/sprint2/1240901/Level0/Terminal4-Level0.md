@@ -29,10 +29,10 @@ This document provides an overview of the Level 0 network infrastructure for Ter
 
 ### Consolidation Points
 
-| Device     | Connected to | Config                                                 |
-|------------|--------------|--------------------------------------------------------|
-| CP3-L0-T4  | HC1-L1-T2    | [CP1-L1-T2.md](configs/CP3-L0-T4_startup-config.txt)   |
-| Rest of CP | —            | No configuration — represented only                    |   
+| Device     | Connected to | Config                                               |
+|------------|--------------|------------------------------------------------------|
+| CP3-L0-T4  | HC1-L1-T2    | [CP3-L0-T4.md](configs/CP3-L0-T4_startup-config.txt) |
+| Rest of CP | —            | No configuration — represented only                  |   
 
 ---
 
