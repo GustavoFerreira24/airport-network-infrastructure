@@ -9,11 +9,11 @@
 
 ## <span style="color: #1F4E79">IP Configuration</span>
 
-| Field           | Value          |
-|-----------------|----------------|
-| IPv4 Address    | 10.76.208.200  |
-| Subnet Mask     | 255.255.254.0 |
-| Default Gateway | 10.76.208.1               |
-| DNS Server      | 0.0.0.0        |
+| Field           | Value           |
+|-----------------|-----------------|
+| IPv4 Address    | 10.76.208.30    |
+| Subnet Mask     | 255.255.255.128 |
+| Default Gateway | 10.76.208.1     |
+| DNS Server      | 0.0.0.0         |
 
 ---
