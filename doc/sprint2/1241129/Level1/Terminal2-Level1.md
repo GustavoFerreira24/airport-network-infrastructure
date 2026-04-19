@@ -1,12 +1,12 @@
-# Terminal 2 – Level 1 (Arrivals)
+# <span style="color: #E67E22">Terminal 2 – Level 1 (Arrivals)
 
-## Infrastructure Overview
+## <span style="color: #1F4E79">Infrastructure Overview
 
 This document provides an overview of the Level 1 network infrastructure for Terminal 2, including links to individual device configurations.
 
 ---
 
-## Network Devices
+## <span style="color: #1F4E79">Network Devices
 
 ### Core Infrastructure
 
@@ -54,7 +54,7 @@ This document provides an overview of the Level 1 network infrastructure for Ter
 
 ---
 
-## Management IP Addresses (Switches DMZ)
+## <span style="color: #1F4E79">Management IP Addresses (Switches DMZ)
 
 | Device    | Management IP |
 |-----------|---------------|

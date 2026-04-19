@@ -1,28 +1,30 @@
-# <span style="color: #E67E22">IC-L1-T2 Configuration</span>
+# <span style="color: #E67E22">HC2-L4-T2 Configuration</span>
 
 
 **Type:** Switch  
 **Terminal:** T2  
-**Level:** L1  
-**VTP Mode:** Server  
-**Management IP:** 10.76.208.XXX
+**Level:** L4  
+**VTP Mode:** Client  
+**Management IP:** 10.76.208.137
 
 ---
 
-## Running Configuration
+## <span style="color: #1F4E79">Running Configuration</span>
 
-Run: **show running-config**
+Run: **show running-config** after running **wr**
 
 ```cisco
 
-Current configuration : 904 bytes
+Current configuration : 1999 bytes
 !
 version 12.1
 no service timestamps log datetime msec
 no service timestamps debug datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname HC2-L4-T2
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
 !
@@ -56,10 +58,25 @@ interface Vlan1
 interface Vlan800
  ip address 10.76.208.137 255.255.255.128
 !
+banner motd ^C
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |                    ------------------------------------                  | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### |                                                                          | ###
+### |                                                                          | ###
+### |               All access attempts are monitored and logged.              | ###
+### |            Unauthorized use may result in disciplinary measures.         | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+^C
 !
 !
 !
 line con 0
+ login local
 !
 line vty 0 4
  login local
@@ -78,7 +95,7 @@ end
 
 ---
 
-## VTP Status
+### VTP Status
 
 Run: **show vtp status**
 
@@ -100,7 +117,7 @@ Configuration last modified by 10.76.208.129 at 3-4-93 00:42:41
 
 ---
 
-## VLAN Database
+### VLAN Database
 
 Run: **show vlan brief**
 
@@ -136,7 +153,7 @@ VLAN Name                             Status    Ports
 
 ---
 
-## Trunk Interfaces
+### Trunk Interfaces
 
 Run: **show interfaces trunk**
 
@@ -158,7 +175,7 @@ Fa0/1       799,800,801,802,803,804,805,806,807,808,809,810,811,812,813,814,815,
 
 ---
 
-## IP Interfaces
+### IP Interfaces
 
 Run: **show ip interface brief**
 
@@ -172,26 +189,13 @@ Vlan800                10.76.208.137   YES manual up                    up
 
 ```
 
-
 ---
 
-## Startup Config
-
-Run: **copy running-config startup-config** (save first), then **show startup-config**
-
-```cisco
-
-PASTE HERE
-
-```
-
----
 
 ## Notes
 
-- **Management IP:** 10.76.208.XXX
-- **Uplinks (trunk):**
-- **Access ports (data):**
-- **Voice ports:**
-- **Wi-Fi ports:**
-- **DMZ management port:**
+- **Uplinks (trunk):** Fa0/1 → IC1-L4-T2
+- **Access ports (data):** none
+- **Voice ports:** none
+- **Wi-Fi ports:** Fa1/1 → AP1-L4-T2 (VLAN 802)
+- **DMZ management port:** none
