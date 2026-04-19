@@ -1,0 +1,155 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname RT1-L0-T4
+!
+!
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username cisco privilege 15 secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
+!
+!
+license udi pid CISCO2811/K9 sn FTX1017H1IP-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name rc2526dig4
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description Trunk to IC-T4-L0 Fa4/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.800
+ description SWITCHES_DMZ VLAN 800
+ encapsulation dot1Q 800
+ ip address 10.76.209.1 255.255.255.192
+!
+interface FastEthernet0/0.809
+ description T4_USERS VLAN 809
+ encapsulation dot1Q 809
+ ip address 10.76.200.1 255.255.252.0
+!
+interface FastEthernet0/0.810
+ description T4_WIFI VLAN 810
+ encapsulation dot1Q 810
+ ip address 10.76.192.1 255.255.248.0
+!
+interface FastEthernet0/0.811
+ description T4_VOIP VLAN 811
+ encapsulation dot1Q 811
+ ip address 10.76.204.1 255.255.254.0
+!
+interface FastEthernet0/0.812
+ description T4_SERVERS VLAN 812
+ encapsulation dot1Q 812
+ ip address 10.76.206.1 255.255.255.128
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 10.76.160.0 255.255.248.0 10.76.210.1 
+ip route 10.76.168.0 255.255.252.0 10.76.210.1 
+ip route 10.76.172.0 255.255.254.0 10.76.210.1 
+ip route 10.76.174.0 255.255.255.128 10.76.210.1 
+ip route 10.76.176.0 255.255.248.0 10.76.210.2 
+ip route 10.76.184.0 255.255.252.0 10.76.210.2 
+ip route 10.76.188.0 255.255.254.0 10.76.210.2 
+ip route 10.76.190.0 255.255.255.0 10.76.210.2 
+ip route 10.76.128.0 255.255.240.0 10.76.210.4 
+ip route 10.76.144.0 255.255.248.0 10.76.210.4 
+ip route 10.76.152.0 255.255.254.0 10.76.210.4 
+ip route 10.76.154.0 255.255.255.0 10.76.210.4 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd $
+
+####################################################################################
+
+### +--------------------------------------------------------------------------+ ###
+
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+
+### |                                  GROUP 4                                 | ###
+
+### |                    ------------------------------------                  | ###
+
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+
+### |                                                                          | ###
+
+### |                                                                          | ###
+
+### |               All access attempts are monitored and logged.              | ###
+
+### |            Unauthorized use may result in disciplinary measures.         | ###
+
+### +--------------------------------------------------------------------------+ ###
+
+####################################################################################
+
+$
+!
+!
+!
+!
+line con 0
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+end
+
