@@ -10,9 +10,7 @@ Run: **show running-config** after running **wr**
 
 ```cisco
 
-Building configuration...
-
-Current configuration : 2235 bytes
+Current configuration : 2500 bytes
 !
 version 15.1
 no service timestamps log datetime msec
@@ -50,6 +48,8 @@ license udi pid CISCO2811/K9 sn FTX10173E1H-
 !
 !
 !
+ip ssh version 2
+ip domain-name rc2526dig4
 !
 !
 spanning-tree mode pvst
@@ -85,16 +85,19 @@ interface FastEthernet0/0.816
  ip address 10.76.154.1 255.255.255.0
 !
 interface FastEthernet0/1
- no ip address
+ ip address 10.76.210.4 255.255.255.0
  duplex auto
  speed auto
- shutdown
 !
 interface Vlan1
  no ip address
  shutdown
 !
 ip classless
+ip route 10.76.160.0 255.255.240.0 10.76.210.1 
+ip route 10.76.176.0 255.255.240.0 10.76.210.2 
+ip route 10.76.192.0 255.255.240.0 10.76.210.3 
+ip route 0.0.0.0 0.0.0.0 10.76.210.1 
 !
 ip flow-export version 9
 !
@@ -124,7 +127,8 @@ line con 0
 line aux 0
 !
 line vty 0 4
- login
+ login local
+ transport input ssh
 !
 !
 !
@@ -178,7 +182,7 @@ FastEthernet0/0.813    10.76.144.1     YES manual up                    up
 FastEthernet0/0.814    10.76.128.1     YES manual up                    up 
 FastEthernet0/0.815    10.76.152.1     YES manual up                    up 
 FastEthernet0/0.816    10.76.154.1     YES manual up                    up 
-FastEthernet0/1        unassigned      YES unset  administratively down down 
+FastEthernet0/1        10.76.210.4     YES manual down                  down 
 Vlan1                  unassigned      YES unset  administratively down down
 ```
 
