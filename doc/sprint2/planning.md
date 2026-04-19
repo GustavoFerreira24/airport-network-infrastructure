@@ -341,12 +341,12 @@ Global Switches DMZ network: `10.76.208.0/23`
 
 Number of switches per terminal (IC + HC + CP):
 
-| Terminal | Switches count              |
-|:--------:|-----------------------------|
-| T2       | 2 IC + 10 HC + 58 CP = 70   |
-| T3       | 1 IC + 5 HC + 6 CP = 12     |
-| T4       | 2 IC + 6 HC + 41 CP = 49    |
-| T5       | 2 IC + 16 HC + 56 CP = 74   |
+| Terminal | Switches count            |
+|:--------:|---------------------------|
+|    T2    | 2 IC + 10 HC + 58 CP = 70 |
+|    T3    | 2 IC + 8 HC + 4 CP = 12   |
+|    T4    | 2 IC + 6 HC + 41 CP = 49  |
+|    T5    | 2 IC + 16 HC + 56 CP = 74 |
 
 #### Per-terminal Switches DMZ IP ranges
 
