@@ -4,7 +4,7 @@
 **Terminal:** T2  
 **Level:** L1  
 **VTP Mode:** Client  
-**Management IP:** 10.76.208.XXX
+**Management IP:** 10.76.208.133
 
 ---
 
@@ -186,25 +186,12 @@ Vlan800                10.76.208.133   YES manual up                    up
 
 ```
 
---
-
-## Startup Config
-
-Run: **copy running-config startup-config** (save first), then **show startup-config**
-
-```cisco
-
-PASTE HERE
-
-```
-
 ---
 
 ## Notes
 
-- **Management IP:** 10.76.208.XXX
-- **Uplinks (trunk):**
-- **Access ports (data):**
-- **Voice ports:**
-- **Wi-Fi ports:**
-- **DMZ management port:**
+- **Uplinks (trunk):** Fa0/1 → HC1-L1-T2
+- **Access ports (data):** none
+- **Voice ports:** Fa1/1 → PH1-L1-T2 (VLAN 803)
+- **Wi-Fi ports:** none
+- **DMZ management port:** none

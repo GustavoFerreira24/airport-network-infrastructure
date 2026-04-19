@@ -4,7 +4,7 @@
 **Terminal:** T2  
 **Level:** L1  
 **VTP Mode:** Client  
-**Management IP:** 10.76.208.XXX
+**Management IP:** 10.76.208.131
 
 ---
 
@@ -200,9 +200,9 @@ Vlan800                10.76.208.131   YES manual up                    up
 
 ## Notes
 
-- **Management IP:** 10.76.208.XXX
-- **Uplinks (trunk):**
-- **Access ports (data):**
-- **Voice ports:**
-- **Wi-Fi ports:**
-- **DMZ management port:**
+- **Uplinks (trunk):** Fa0/1 → IC-L1-T2
+- **Downlinks (trunk):** Fa1/1 → CP3-L1-T2
+- **Access ports (data):** none
+- **Voice ports:** none
+- **Wi-Fi ports:** Fa2/1 → AP1-L1-T2 (VLAN 802)
+- **DMZ management port:** none

@@ -9,41 +9,19 @@
 
 ## <span style="color: #1F4E79">IP Configuration</span>
 
-| Field           | Value       |
-|-----------------|-------------|
-| IPv4 Address    |             |
-| Subnet Mask     |             |
-| Default Gateway | 10.76.174.1 |
-| DNS Server      |             |
-
----
-
-## <span style="color: #1F4E79">Services Active</span>
-
-| Service | Status |
-|---------|--------|
-| HTTP    |        |
-| HTTPS   |        |
-| DNS     |        |
-| DHCP    | Off (static addressing used) |
-| FTP     |        |
-
----
-
-## <span style="color: #1F4E79">Connectivity Tests</span>
-
-```
-
-PASTE PING OUTPUT HERE
-
-```
+| Field           | Value           |
+|-----------------|-----------------|
+| IPv4 Address    | 10.76.174.2     |
+| Subnet Mask     | 255.255.255.128 |
+| Default Gateway | 10.76.174.1     |
+| DNS Server      | 0.0.0.0         |
 
 ---
 
 ## Notes
 
-- **Connected to switch:** [CP name]
-- **Switch port:** FastEthernetX/X
+- **Connected to switch:** CP1-L1-T2
+- **Switch port:** FastEthernet2/1
 - **Switch port mode:** access
 - **VLAN assigned:** 804 (T2_SERVERS)
 - **Gateway:** 10.76.174.1

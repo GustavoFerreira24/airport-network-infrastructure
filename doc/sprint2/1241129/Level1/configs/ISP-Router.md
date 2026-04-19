@@ -1,9 +1,7 @@
 # <span style="color: #E67E22">ISP-Router Configuration</span>
 
 **Type:** Router (Cisco 2811)  
-**Terminal:** T2  
-**Role:** Terminal router / inter-VLAN routing + campus backbone
-
+**Role:** ISP Router — forwards traffic to team address block
 ---
 
 ## <span style="color: #1F4E79">Running Configuration</span>
@@ -161,12 +159,6 @@ Vlan1                  unassigned      YES NVRAM  administratively down down
 
 ## Notes
 
-- **Backbone IP:** 10.76.210.1/24 (FastEthernet0/0.799)
-- **Subinterfaces configured:**
-- Fa0/0.799 → CAMPUS_BACKBONE → 10.76.210.1/24
-- Fa0/0.801 → T2_USERS → 10.76.168.1/22
-- Fa0/0.802 → T2_WIFI → 10.76.160.1/21
-- Fa0/0.803 → T2_VOIP → 10.76.172.1/23
-- Fa0/0.804 → T2_SERVERS → 10.76.174.1/25
-- **Static routes configured:**
-- **Connected to switch:** IC-L1-T2 via Fa0/0 (trunk)
+- **WAN IP:** 89.73.67.238/30 (FastEthernet0/0)
+- **Connected to:** DSL Modem → Cloud → RT-T2 (89.73.67.237)
+- **Static route:** 10.76.128.0/17 via 89.73.67.237

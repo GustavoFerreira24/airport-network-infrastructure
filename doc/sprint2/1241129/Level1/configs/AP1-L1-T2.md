@@ -23,4 +23,4 @@
 - **Switch port:** FastEthernet2/1
 - **Switch port mode:** access
 - **VLAN assigned:** 802 (T2_WIFI)
-- **Clients associated:** Laptop0
+- **Clients associated:** LAP1-L1-T2

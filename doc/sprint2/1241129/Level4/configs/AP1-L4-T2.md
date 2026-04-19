@@ -13,14 +13,14 @@
 |----------------|----------|
 | SSID           | T2-Wifi  |
 | Authentication | Disabled |
-| Channel        |          |
+| Channel        | 1        |
 
 ---
 
 ## Notes
 
-- **Connected to switch:** [HC name]
-- **Switch port:** FastEthernetX/X
+- **Connected to switch:** HC2-L4-T2
+- **Switch port:** FastEthernet1/1
 - **Switch port mode:** access
 - **VLAN assigned:** 802 (T2_WIFI)
-- **Clients associated:**
+- **Clients associated:** LAP1-L4-T2

@@ -2,8 +2,7 @@
 
 **Type:** Router (Cisco 2811)  
 **Terminal:** T2  
-**Role:** Terminal router / inter-VLAN routing + campus backbone
-
+**Role:** Terminal router — inter-VLAN routing, campus backbone, internet connection
 ---
 
 ## <span style="color: #1F4E79">Running Configuration</span>
@@ -158,9 +157,10 @@ Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
        * - candidate default, U - per-user static route, o - ODR
        P - periodic downloaded static route
 
-Gateway of last resort is not set
+Gateway of last resort is 89.73.67.238 to network 0.0.0.0
 
-     10.0.0.0/8 is variably subnetted, 10 subnets, 6 masks
+     10.0.0.0/8 is variably subnetted, 13 subnets, 8 masks
+S       10.76.128.0/19 [1/0] via 10.76.210.4
 C       10.76.160.0/21 is directly connected, FastEthernet0/0.802
 L       10.76.160.1/32 is directly connected, FastEthernet0/0.802
 C       10.76.168.0/22 is directly connected, FastEthernet0/0.801
@@ -169,8 +169,14 @@ C       10.76.172.0/23 is directly connected, FastEthernet0/0.803
 L       10.76.172.1/32 is directly connected, FastEthernet0/0.803
 C       10.76.174.0/25 is directly connected, FastEthernet0/0.804
 L       10.76.174.1/32 is directly connected, FastEthernet0/0.804
+S       10.76.176.0/20 [1/0] via 10.76.210.2
+S       10.76.192.0/20 [1/0] via 10.76.210.3
 C       10.76.210.0/24 is directly connected, FastEthernet0/0.799
-
+L       10.76.210.1/32 is directly connected, FastEthernet0/0.799
+     89.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C       89.73.67.236/30 is directly connected, FastEthernet0/1
+L       89.73.67.237/32 is directly connected, FastEthernet0/1
+S*   0.0.0.0/0 [1/0] via 89.73.67.238
 ```
 
 ---
@@ -188,9 +194,8 @@ FastEthernet0/0.801    10.76.168.1     YES manual up                    up
 FastEthernet0/0.802    10.76.160.1     YES manual up                    up 
 FastEthernet0/0.803    10.76.172.1     YES manual up                    up 
 FastEthernet0/0.804    10.76.174.1     YES manual up                    up 
-FastEthernet0/1        unassigned      YES unset  administratively down down 
+FastEthernet0/1        89.73.67.237    YES manual up                    up 
 Vlan1                  unassigned      YES unset  administratively down down
-
 ```
 
 
@@ -200,10 +205,15 @@ Vlan1                  unassigned      YES unset  administratively down down
 
 - **Backbone IP:** 10.76.210.1/24 (FastEthernet0/0.799)
 - **Subinterfaces configured:**
- - Fa0/0.799 → CAMPUS_BACKBONE → 10.76.210.1/24
- - Fa0/0.801 → T2_USERS → 10.76.168.1/22
- - Fa0/0.802 → T2_WIFI → 10.76.160.1/21
- - Fa0/0.803 → T2_VOIP → 10.76.172.1/23
- - Fa0/0.804 → T2_SERVERS → 10.76.174.1/25
+    - Fa0/0.799 → CAMPUS_BACKBONE → 10.76.210.1/24
+    - Fa0/0.801 → T2_USERS → 10.76.168.1/22
+    - Fa0/0.802 → T2_WIFI → 10.76.160.1/21
+    - Fa0/0.803 → T2_VOIP → 10.76.172.1/23
+    - Fa0/0.804 → T2_SERVERS → 10.76.174.1/25
 - **Static routes configured:**
+    - 0.0.0.0/0 via 89.73.67.238 (default route → ISP)
+    - 10.76.176.0/20 via 10.76.210.2 (T3)
+    - 10.76.192.0/20 via 10.76.210.3 (T4)
+    - 10.76.128.0/19 via 10.76.210.4 (T5)
+- **WAN IP:** 89.73.67.237/30 (FastEthernet0/1 → ISP-Router)
 - **Connected to switch:** IC-L1-T2 via Fa0/0 (trunk)

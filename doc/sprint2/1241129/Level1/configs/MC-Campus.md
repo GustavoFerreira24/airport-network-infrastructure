@@ -3,9 +3,8 @@
 **Type:** Switch  
 **Terminal:** T2  
 **Level:** L1  
-**VTP Mode:** [server/client]  
-**Management IP:** 10.76.208.XXX
-
+**VTP Mode:** Server  
+**Management IP:** 10.76.208.139
 ---
 
 ## <span style="color: #1F4E79">Running Configuration</span>
@@ -14,7 +13,7 @@ Run: **show running-config**
 
 ```cisco
 
-Current configuration : 2125 bytes
+Current configuration : 2187 bytes
 !
 version 12.1
 no service timestamps log datetime msec
@@ -31,7 +30,7 @@ ptp clock transparent domain 0 profile default
 ip ssh version 2
 ip domain-name rc2526dig4
 !
-username admin secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+username cisco secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
 !
@@ -61,6 +60,9 @@ interface FastEthernet3/1
 interface Vlan1
  no ip address
  shutdown
+!
+interface Vlan800
+ ip address 10.76.208.139 255.255.255.128
 !
 banner motd ^C
 ####################################################################################
@@ -202,30 +204,17 @@ FastEthernet0/1        unassigned      YES manual up                    up
 FastEthernet1/1        unassigned      YES manual up                    up 
 FastEthernet2/1        unassigned      YES manual up                    up 
 FastEthernet3/1        unassigned      YES manual up                    up 
-Vlan1                  unassigned      YES manual administratively down down
-
-```
-
----
-
-
-## Startup Config
-
-Run: **copy running-config startup-config** (save first), then **show startup-config**
-
-```cisco
-
-PASTE HERE
-
+Vlan1                  unassigned      YES manual administratively down down 
+Vlan800                10.76.208.139   YES manual up                    up
 ```
 
 ---
 
 ## Notes
 
-- **Management IP:** 10.76.208.XXX
-- **Uplinks (trunk):**
-- **Access ports (data):**
-- **Voice ports:**
-- **Wi-Fi ports:**
-- **DMZ management port:**
+- **Uplinks (trunk):** Fa1/1 → IC-T3, Fa2/1 → IC-T4, Fa3/1 → IC-T5
+- **Downlinks (trunk):** Fa0/1 → IC-L1-T2
+- **Access ports (data):** none
+- **Voice ports:** none
+- **Wi-Fi ports:** none
+- **DMZ management port:** none
