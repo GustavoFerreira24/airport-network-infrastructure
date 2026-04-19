@@ -1,4 +1,4 @@
-# <span style="color: #E67E22">IC-L1-T2 Configuration</span>
+# <span style="color: #E67E22">IC-L4-T2 Configuration</span>
 
 
 **Type:** Switch  
@@ -9,20 +9,22 @@
 
 ---
 
-## Running Configuration
+## <span style="color: #1F4E79">Running Configuration</span>
 
-Run: **show running-config**
+Run: **show running-config** after running **wr**
 
 ```cisco
 
-Current configuration : 1359 bytes
+Current configuration : 2454 bytes
 !
 version 12.1
 no service timestamps log datetime msec
 no service timestamps debug datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname IC1-L4-T2
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
 !
@@ -74,10 +76,25 @@ interface Vlan1
 interface Vlan800
  ip address 10.76.208.135 255.255.255.128
 !
+banner motd ^C
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |                    ------------------------------------                  | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### |                                                                          | ###
+### |                                                                          | ###
+### |               All access attempts are monitored and logged.              | ###
+### |            Unauthorized use may result in disciplinary measures.         | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+^C
 !
 !
 !
 line con 0
+ login local
 !
 line vty 0 4
  login local
@@ -212,20 +229,8 @@ Vlan800                10.76.208.135   YES manual up                    up
 
 ```
 
-
 ---
 
-## Startup Config
-
-Run: **copy running-config startup-config** (save first), then **show startup-config**
-
-```cisco
-
-PASTE HERE
-
-```
-
----
 
 ## Notes
 

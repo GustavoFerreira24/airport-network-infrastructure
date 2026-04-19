@@ -1,4 +1,4 @@
-# CP3-L1-T2 Configuration
+# <span style="color: #E67E22">CP3-L1-T2 Configuration</span>
 
 **Type:** Switch  
 **Terminal:** T2  
@@ -8,20 +8,22 @@
 
 ---
 
-## Running Configuration
+## <span style="color: #1F4E79">Running Configuration</span>
 
-Run: **show running-config**
+Run: **show running-config** after running **wr**
 
 ```cisco
 
-Current configuration : 865 bytes
+Current configuration : 1960 bytes
 !
 version 12.1
 no service timestamps log datetime msec
 no service timestamps debug datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname CP3-L1-T2
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
 !
@@ -54,10 +56,25 @@ interface Vlan1
 interface Vlan800
  ip address 10.76.208.134 255.255.255.128
 !
+banner motd ^C
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |                    ------------------------------------                  | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### |                                                                          | ###
+### |                                                                          | ###
+### |               All access attempts are monitored and logged.              | ###
+### |            Unauthorized use may result in disciplinary measures.         | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+^C
 !
 !
 !
 line con 0
+ login local
 !
 line vty 0 4
  login local
@@ -166,19 +183,6 @@ FastEthernet0/1        unassigned      YES manual up                    up
 FastEthernet1/1        unassigned      YES manual up                    up 
 Vlan1                  unassigned      YES manual administratively down down 
 Vlan800                10.76.208.134   YES manual up                    up
-
-```
-
----
-
-
-## Startup Config
-
-Run: **copy running-config startup-config** (save first), then **show startup-config**
-
-```cisco
-
-PASTE HERE
 
 ```
 

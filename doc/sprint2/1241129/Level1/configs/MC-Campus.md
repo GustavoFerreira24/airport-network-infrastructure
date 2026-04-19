@@ -1,4 +1,4 @@
-# MC-Campus Configuration
+# <span style="color: #E67E22">MC-Campus Configuration</span>
 
 **Type:** Switch  
 **Terminal:** T2  
@@ -8,20 +8,22 @@
 
 ---
 
-## Running Configuration
+## <span style="color: #1F4E79">Running Configuration</span>
 
 Run: **show running-config**
 
 ```cisco
 
-Current configuration : 1030 bytes
+Current configuration : 2125 bytes
 !
 version 12.1
 no service timestamps log datetime msec
 no service timestamps debug datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname MC-Campus
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
 !
@@ -60,10 +62,25 @@ interface Vlan1
  no ip address
  shutdown
 !
+banner motd ^C
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |                    ------------------------------------                  | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### |                                                                          | ###
+### |                                                                          | ###
+### |               All access attempts are monitored and logged.              | ###
+### |            Unauthorized use may result in disciplinary measures.         | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+^C
 !
 !
 !
 line con 0
+ login local
 !
 line vty 0 4
  login local

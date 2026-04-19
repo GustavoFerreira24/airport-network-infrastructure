@@ -1,4 +1,4 @@
-# [HOSTNAME] Configuration
+# <span style="color: #E67E22">RT-T2 Configuration</span>
 
 **Type:** Router (Cisco 2811)  
 **Terminal:** T2  
@@ -6,22 +6,24 @@
 
 ---
 
-## Running Configuration
+## <span style="color: #1F4E79">Running Configuration</span>
 
-Run: **show running-config**
+Run: **show running-config** after running **wr**
 
 ```cisco
 
-Current configuration : 1260 bytes
+Current configuration : 2592 bytes
 !
 version 15.1
 no service timestamps log datetime msec
 no service timestamps debug datetime msec
-no service password-encryption
+service password-encryption
 !
 hostname RT-T2
 !
 !
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
 !
@@ -85,26 +87,45 @@ interface FastEthernet0/0.804
  ip address 10.76.174.1 255.255.255.128
 !
 interface FastEthernet0/1
- no ip address
+ description Connection to ISP-Router
+ ip address 89.73.67.237 255.255.255.252
  duplex auto
  speed auto
- shutdown
 !
 interface Vlan1
  no ip address
  shutdown
 !
 ip classless
+ip route 0.0.0.0 0.0.0.0 89.73.67.238 
+ip route 10.76.176.0 255.255.240.0 10.76.210.2 
+ip route 10.76.192.0 255.255.240.0 10.76.210.3 
+ip route 10.76.128.0 255.255.224.0 10.76.210.4 
 !
 ip flow-export version 9
 !
 !
 !
+banner motd ^C
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |                    ------------------------------------                  | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### |                                                                          | ###
+### |                                                                          | ###
+### |               All access attempts are monitored and logged.              | ###
+### |            Unauthorized use may result in disciplinary measures.         | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+^C
 !
 !
 !
 !
 line con 0
+ login local
 !
 line aux 0
 !
@@ -172,18 +193,6 @@ Vlan1                  unassigned      YES unset  administratively down down
 
 ```
 
----
-
-
-## Startup Config
-
-Run: **copy running-config startup-config** (save first), then **show startup-config**
-
-```cisco
-
-PASTE HERE
-
-```
 
 ---
 
