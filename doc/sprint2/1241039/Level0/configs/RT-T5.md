@@ -10,7 +10,7 @@ Run: **show running-config** after running **wr**
 
 ```cisco
 
-Current configuration : 2504 bytes
+Current configuration : 2500 bytes
 !
 version 15.1
 no service timestamps log datetime msec
@@ -66,7 +66,7 @@ interface FastEthernet0/0
 !
 interface FastEthernet0/0.800
  encapsulation dot1Q 800
- ip address 10.76.208.126 255.255.255.128
+ ip address 10.76.208.1 255.255.254.0
 !
 interface FastEthernet0/0.813
  encapsulation dot1Q 813
@@ -164,7 +164,7 @@ L       10.76.152.1/32 is directly connected, FastEthernet0/0.815
 C       10.76.154.0/24 is directly connected, FastEthernet0/0.816
 L       10.76.154.1/32 is directly connected, FastEthernet0/0.816
 C       10.76.208.0/23 is directly connected, FastEthernet0/0.800
-L       10.76.208.126/32 is directly connected, FastEthernet0/0.800
+L       10.76.208.1/32 is directly connected, FastEthernet0/0.800
 ```
 
 ---
@@ -177,7 +177,7 @@ Run: **show ip interface brief**
 
 Interface              IP-Address      OK? Method Status                Protocol 
 FastEthernet0/0        unassigned      YES unset  up                    up 
-FastEthernet0/0.800    10.76.208.126     YES manual up                    up 
+FastEthernet0/0.800    10.76.208.1     YES manual up                    up 
 FastEthernet0/0.813    10.76.144.1     YES manual up                    up 
 FastEthernet0/0.814    10.76.128.1     YES manual up                    up 
 FastEthernet0/0.815    10.76.152.1     YES manual up                    up 
