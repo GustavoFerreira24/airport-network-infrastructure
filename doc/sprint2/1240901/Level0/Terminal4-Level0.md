@@ -47,3 +47,14 @@ This document provides an overview of the Level 0 network infrastructure for Ter
 | AP1-L0-T4  | Access Point            | T4_WIFI (810)      | —                |
 | PH1-L0-T4  | VoIP Phone (Cisco 7960) | T4_VOIP (811)      | Pending Sprint 3 |
 
+----
+
+## <span style="color: #1F4E79">Management IP Addresses (Switches DMZ - T4 L0)</span>
+
+| Device    | Management IP |
+|-----------| ------------- |
+| IC-L0-T4  | 10.76.209.1   |
+| HC1-L0-T4 | 10.76.209.2   |
+| HC2-L0-T4 | 10.76.209.3   |
+| HC3-L0-T4 | 10.76.209.4   |
+| CP3-L0-T4 | 10.76.209.5   |
