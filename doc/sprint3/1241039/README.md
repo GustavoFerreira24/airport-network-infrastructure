@@ -1,6 +1,6 @@
-# RCOMP 2025-2026 Project 1 - Sprint 3 - Member 1240901
+# RCOMP 2025-2026 Project 1 - Sprint 3 - Member 1241039
 
-This folder contains all Sprint 3 outcomes for Terminal 5, developed by member 1240901.
+This folder contains all Sprint 3 outcomes for Terminal 5, developed by member 1241039.
 
 ---
 
