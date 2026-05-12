@@ -45,7 +45,7 @@ This document provides an overview of the Level 2 network infrastructure for Ter
 
 | Device       | Type                    | VLAN               | IP               |
 |--------------| ----------------------- | ------------------ |------------------|
-| PC-L2- T5    | Workstation             | T5_USERS (813)     | 10.76.128.10     |
+| PC-L2- T5    | Workstation             | T5_USERS (813)     | 10.76.144.20     |
 | PC-DMZ-L2    | Management Workstation  | SWITCHES_DMZ (800) | 10.76.208.20     |
 | Laptop-L2-T5 | Wireless Laptop         | T5_WIFI (814)      | 10.76.128.20     |
 | AP-L2-T5     | Access Point            | T5_WIFI (814)      | —                |

@@ -13,7 +13,7 @@
 |-----------------|-----------------|
 | IPv4 Address    | 10.76.208.30    |
 | Subnet Mask     | 255.255.255.128 |
-| Default Gateway | 10.76.208.1     |
+| Default Gateway | --------------  |
 | DNS Server      | 0.0.0.0         |
 
 ---
