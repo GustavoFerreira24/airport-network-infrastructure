@@ -1,4 +1,4 @@
-# RCOMP 2025-2026 Project 1 - Sprint 3 Planning
+ # RCOMP 2025-2026 Project 1 - Sprint 3 Planning
 
 ### Sprint master: 1241129
 
