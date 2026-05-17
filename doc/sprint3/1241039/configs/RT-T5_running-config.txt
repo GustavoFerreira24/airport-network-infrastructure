@@ -42,7 +42,7 @@ no ipv6 cef
 username cisco privilege 15 secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
-license udi pid CISCO2811/K9 sn FTX10173E1H-
+license udi pid CISCO2811/K9 sn FTX101736NO-
 !
 !
 !
@@ -70,6 +70,12 @@ interface FastEthernet0/0
  duplex auto
  speed auto
 !
+interface FastEthernet0/0.799
+ encapsulation dot1Q 799
+ ip address 10.76.210.4 255.255.255.0
+ ip nat outside
+ ip access-group BACKBONE_IN in
+!
 interface FastEthernet0/0.813
  encapsulation dot1Q 813
  ip address 10.76.144.1 255.255.248.0
@@ -96,11 +102,12 @@ interface FastEthernet0/0.816
  ip access-group DMZ_IN out
 !
 interface FastEthernet0/1
- ip address 10.76.210.4 255.255.255.0
+ no ip address
  ip nat outside
  ip access-group BACKBONE_IN in
  duplex auto
  speed auto
+ shutdown
 !
 interface Vlan1
  no ip address
@@ -122,29 +129,17 @@ ip flow-export version 9
 !
 !
 ip access-list extended BACKBONE_IN
- deny ip 10.76.128.0 0.0.127.255 any
+ permit ospf any any
  permit icmp any any echo
  permit icmp any any echo-reply
- permit ospf any any
+ deny ip 10.76.128.0 0.0.31.255 any
  permit tcp any host 10.76.210.4 eq www
  permit tcp any host 10.76.210.4 eq 443
  permit tcp any any established
  permit ip any any
-ip access-list extended DMZ_IN
- permit udp any host 10.76.154.3 eq domain
- permit tcp any host 10.76.154.3 eq domain
- permit tcp any host 10.76.154.3 eq www
- permit tcp any host 10.76.154.3 eq 443
- permit tcp any host 10.76.154.2 eq www
- permit tcp any host 10.76.154.2 eq 443
- permit icmp any 10.76.154.0 0.0.0.255 echo
- permit icmp any 10.76.154.0 0.0.0.255 echo-reply
- deny ip any 10.76.154.0 0.0.0.255
- permit ip any any
 ip access-list extended LOCAL_IN
  permit icmp any any echo
  permit icmp any any echo-reply
- deny ip any 10.76.210.0 0.0.0.255
  permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
  permit ospf any any
  permit udp any any eq tftp
@@ -157,6 +152,19 @@ ip access-list extended LOCAL_IN
  deny ip any host 10.76.152.1
  deny ip any host 10.76.154.1
  deny ip any host 10.76.210.4
+ permit ip any any
+ip access-list extended DMZ_IN
+ permit icmp any 10.76.154.0 0.0.0.255 echo
+ permit icmp any 10.76.154.0 0.0.0.255 echo-reply
+ permit udp any host 10.76.154.3 eq domain
+ permit tcp any host 10.76.154.3 eq domain
+ permit udp any eq domain host 10.76.154.3
+ permit tcp any eq domain host 10.76.154.3
+ permit tcp any host 10.76.154.3 eq www
+ permit tcp any host 10.76.154.3 eq 443
+ permit tcp any host 10.76.154.2 eq www
+ permit tcp any host 10.76.154.2 eq 443
+ deny ip any 10.76.154.0 0.0.0.255
  permit ip any any
 !
 banner motd $
@@ -177,6 +185,18 @@ $
 !
 !
 !
+dial-peer voice 2 voip
+ destination-pattern 2...
+ session target ipv4:10.76.210.1
+!
+dial-peer voice 3 voip
+ destination-pattern 3...
+ session target ipv4:10.76.210.2
+!
+dial-peer voice 4 voip
+ destination-pattern 4...
+ session target ipv4:10.76.210.3
+!
 telephony-service
  max-ephones 5
  max-dn 10
@@ -189,15 +209,15 @@ ephone-dn 1
 ephone-dn 2
  number 5002
 !
-ephone 1
+ephone 3
  device-security-mode none
- mac-address 00D0.D3E8.7ECB
+ mac-address 0001.C975.9E66
  type 7960
  button 1:1
 !
-ephone 2
+ephone 4
  device-security-mode none
- mac-address 0007.EC32.6B6D
+ mac-address 0030.F252.6A94
  type 7960
  button 1:2
 !

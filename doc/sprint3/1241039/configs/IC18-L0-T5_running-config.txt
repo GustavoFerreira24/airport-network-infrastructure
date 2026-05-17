@@ -1,0 +1,89 @@
+!
+version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname IC18-L0-T5
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
+!
+!
+!
+ptp clock transparent domain 0 profile default
+!
+username cisco secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet1/1
+ switchport mode trunk
+!
+interface FastEthernet2/1
+ switchport mode trunk
+!
+interface FastEthernet3/1
+ switchport mode trunk
+!
+interface FastEthernet4/1
+ switchport mode trunk
+!
+interface FastEthernet5/1
+ switchport mode trunk
+!
+interface FastEthernet7/1
+ description Connection to IC-L0-T4
+ switchport trunk allowed vlan 799-816
+ switchport mode trunk
+!
+interface FastEthernet8/1
+ description Connection to IC1-L1-T2
+ switchport trunk allowed vlan 799-816
+ switchport mode trunk
+!
+interface FastEthernet9/1
+ switchport mode trunk
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan800
+ ip address 10.76.208.20 255.255.255.128
+!
+banner motd $
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |                    ------------------------------------                  | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### |                                                                          | ###
+### |                                                                          | ###
+### |               All access attempts are monitored and logged.              | ###
+### |            Unauthorized use may result in disciplinary measures.         | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+$
+!
+!
+!
+line con 0
+ login local
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+!
+!
+!
+end
+
