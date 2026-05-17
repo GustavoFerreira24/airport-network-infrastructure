@@ -40,7 +40,7 @@ no ipv6 cef
 username cisco privilege 15 secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
 !
 !
-license udi pid CISCO2811/K9 sn FTX1017H1IP-
+license udi pid CISCO2811/K9 sn FTX101780EV-
 !
 !
 !
@@ -70,10 +70,11 @@ interface FastEthernet0/0
  duplex auto
  speed auto
 !
-interface FastEthernet0/0.800
- description SWITCHES_DMZ VLAN 800
- encapsulation dot1Q 800
- ip address 10.76.209.1 255.255.255.192
+interface FastEthernet0/0.799
+ encapsulation dot1Q 799
+ ip address 10.76.210.3 255.255.255.0
+ ip nat outside
+ ip access-group BACKBONE_IN in
 !
 interface FastEthernet0/0.809
  description T4_USERS VLAN 809
@@ -108,12 +109,6 @@ interface FastEthernet0/1
  duplex auto
  speed auto
 !
-interface FastEthernet0/1.799
- encapsulation dot1Q 799
- ip address 10.76.210.3 255.255.255.0
- ip nat outside
- ip access-group BACKBONE_IN in
-!
 interface Vlan1
  no ip address
  shutdown
@@ -122,6 +117,9 @@ router ospf 1
  log-adjacency-changes
  network 10.76.210.0 0.0.0.255 area 0
  network 10.76.192.0 0.0.15.255 area 4
+ network 10.76.200.0 0.0.3.255 area 4
+ network 10.76.204.0 0.0.1.255 area 4
+ network 10.76.206.0 0.0.0.127 area 4
 !
 ip nat inside source static tcp 10.76.206.3 80 10.76.210.3 80 
 ip nat inside source static tcp 10.76.206.3 443 10.76.210.3 443 
@@ -131,10 +129,10 @@ ip flow-export version 9
 !
 !
 ip access-list extended BACKBONE_IN
- deny ip 10.76.128.0 0.0.127.255 any
+ permit ospf any any
  permit icmp any any echo
  permit icmp any any echo-reply
- permit ospf any any
+ deny ip 10.76.192.0 0.0.15.255 any
  permit tcp any host 10.76.210.3 eq www
  permit tcp any host 10.76.210.3 eq 443
  permit tcp any any established
@@ -155,12 +153,13 @@ ip access-list extended LOCAL_IN
  deny ip any host 10.76.206.1
  deny ip any host 10.76.210.3
  permit ip any any
- deny ip any 10.76.210.0 0.0.0.255
 ip access-list extended DMZ_IN
  permit icmp any 10.76.206.0 0.0.0.127 echo
- permit icmp 10.76.206.0 0.0.0.127 any echo-reply
+ permit icmp any 10.76.206.0 0.0.0.127 echo-reply
  permit udp any host 10.76.206.3 eq domain
  permit tcp any host 10.76.206.3 eq domain
+ permit udp any eq domain host 10.76.206.3
+ permit tcp any eq domain host 10.76.206.3
  permit tcp any host 10.76.206.3 eq www
  permit tcp any host 10.76.206.3 eq 443
  permit tcp any host 10.76.206.10 eq www
@@ -199,6 +198,18 @@ $
 !
 !
 !
+dial-peer voice 2 voip
+ destination-pattern 2...
+ session target ipv4:10.76.210.1
+!
+dial-peer voice 3 voip
+ destination-pattern 3...
+ session target ipv4:10.76.210.2
+!
+dial-peer voice 5 voip
+ destination-pattern 5...
+ session target ipv4:10.76.210.4
+!
 telephony-service
  max-ephones 10
  max-dn 10
@@ -211,15 +222,15 @@ ephone-dn 1
 ephone-dn 2
  number 4002
 !
-ephone 1
+ephone 3
  device-security-mode none
- mac-address 0001.9687.0909
+ mac-address 0001.647D.C462
  type 7960
  button 1:1
 !
-ephone 2
+ephone 4
  device-security-mode none
- mac-address 00D0.BA7B.6D86
+ mac-address 0001.6316.2CD2
  type 7960
  button 1:2
 !
