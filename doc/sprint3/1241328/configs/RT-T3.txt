@@ -1,0 +1,248 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname RT-T3
+!
+!
+!
+enable secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
+!
+!
+ip dhcp excluded-address 10.76.176.1
+ip dhcp excluded-address 10.76.184.1
+ip dhcp excluded-address 10.76.188.1
+ip dhcp excluded-address 10.76.190.1 10.76.190.3
+!
+ip dhcp pool T3_WIFI
+ network 10.76.176.0 255.255.248.0
+ default-router 10.76.176.1
+ dns-server 10.76.190.3
+ domain-name terminal-3.rcomp-25-26-DI-G4
+ip dhcp pool T3_USERS
+ network 10.76.184.0 255.255.252.0
+ default-router 10.76.184.1
+ dns-server 10.76.190.3
+ domain-name terminal-3.rcomp-25-26-DI-G4
+ip dhcp pool T3_VOIP
+ network 10.76.188.0 255.255.254.0
+ default-router 10.76.188.1
+ option 150 ip 10.76.188.1
+ dns-server 10.76.190.3
+ domain-name terminal-3.rcomp-25-26-DI-G4
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username cisco privilege 15 secret 5 $1$mERr$UIEd/gKB8Xu9v11aSkZ1n0
+!
+!
+license udi pid CISCO2811/K9 sn FTX10173AA9-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name rc2526dig4
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.799
+ description CAMPUS_BACKBONE
+ encapsulation dot1Q 799
+ ip address 10.76.210.2 255.255.255.0
+ ip nat outside
+ ip access-group BACKBONE_IN in
+!
+interface FastEthernet0/0.805
+ description T3_USERS
+ encapsulation dot1Q 805
+ ip address 10.76.184.1 255.255.252.0
+ ip nat inside
+ ip access-group LOCAL_IN in
+!
+interface FastEthernet0/0.806
+ description T3_WIFI
+ encapsulation dot1Q 806
+ ip address 10.76.176.1 255.255.248.0
+ ip nat inside
+ ip access-group LOCAL_IN in
+!
+interface FastEthernet0/0.807
+ description T3_VOIP
+ encapsulation dot1Q 807
+ ip address 10.76.188.1 255.255.254.0
+ ip nat inside
+ ip access-group LOCAL_IN in
+!
+interface FastEthernet0/0.808
+ description T3_SERVERS
+ encapsulation dot1Q 808
+ ip address 10.76.190.1 255.255.255.0
+ ip nat inside
+ ip access-group LOCAL_IN in
+ ip access-group DMZ_IN out
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.76.176.0 0.0.7.255 area 3
+ network 10.76.184.0 0.0.3.255 area 3
+ network 10.76.188.0 0.0.1.255 area 3
+ network 10.76.190.0 0.0.0.255 area 3
+ network 10.76.210.0 0.0.0.255 area 0
+!
+ip nat inside source static tcp 10.76.190.3 80 10.76.210.2 80 
+ip nat inside source static tcp 10.76.190.3 443 10.76.210.2 443 
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list extended LOCAL_IN
+ remark Basic local policy, DHCP/VoIP/DNS allowed and router self-protection
+ permit icmp any any echo
+ permit icmp any any echo-reply
+ permit udp host 0.0.0.0 host 255.255.255.255 eq bootps
+ permit udp any any eq bootps
+ permit udp any any eq bootpc
+ permit ospf any any
+ permit udp any any eq tftp
+ permit tcp any any eq 2000
+ permit udp any any eq 2000
+ permit udp any host 10.76.190.3 eq domain
+ permit tcp any host 10.76.190.3 eq domain
+ deny ip any 10.76.208.0 0.0.1.255
+ deny ip any host 10.76.176.1
+ deny ip any host 10.76.184.1
+ deny ip any host 10.76.188.1
+ deny ip any host 10.76.190.1
+ deny ip any host 10.76.210.2
+ permit ip any any
+ip access-list extended BACKBONE_IN
+ deny ip 10.76.176.0 0.0.7.255 any
+ deny ip 10.76.184.0 0.0.3.255 any
+ deny ip 10.76.188.0 0.0.1.255 any
+ deny ip 10.76.190.0 0.0.0.255 any
+ permit icmp any any echo
+ permit icmp any any echo-reply
+ permit ospf any any
+ permit tcp any host 10.76.210.2 eq www
+ permit tcp any host 10.76.210.2 eq 443
+ permit tcp any host 10.76.210.2 eq 1720
+ permit tcp any host 10.76.210.2 eq 2000
+ deny ip any host 10.76.210.2
+ permit ip any any
+ip access-list extended DMZ_IN
+ permit icmp any 10.76.190.0 0.0.0.255 echo
+ permit icmp any 10.76.190.0 0.0.0.255 echo-reply
+ permit udp any host 10.76.190.3 eq domain
+ permit tcp any host 10.76.190.3 eq domain
+ permit udp any eq domain host 10.76.190.3
+ permit tcp any eq domain host 10.76.190.3
+ permit tcp any host 10.76.190.3 eq www
+ permit tcp any host 10.76.190.3 eq 443
+ permit tcp any host 10.76.190.2 eq www
+ permit tcp any host 10.76.190.2 eq 443
+ deny ip any 10.76.190.0 0.0.0.255
+ permit ip any any
+!
+banner motd $
+####################################################################################
+### +--------------------------------------------------------------------------+ ###
+### |                       RCOMP NETWORK INFRASTRUCTURE                       | ###
+### |                                  GROUP 4                                 | ###
+### |             !!! UNAUTHORIZED ACCESS IS STRICTLY PROHIBITED !!!           | ###
+### +--------------------------------------------------------------------------+ ###
+####################################################################################
+$
+!
+!
+!
+!
+dial-peer voice 2 voip
+ destination-pattern 2...
+ session target ipv4:10.76.210.1
+!
+dial-peer voice 4 voip
+ destination-pattern 4...
+ session target ipv4:10.76.210.3
+!
+dial-peer voice 5 voip
+ destination-pattern 5...
+ session target ipv4:10.76.210.4
+!
+telephony-service
+ max-ephones 5
+ max-dn 10
+ ip source-address 10.76.188.1 port 2000
+ auto assign 1 to 10
+!
+ephone-dn 1
+ number 3001
+!
+ephone-dn 2
+ number 3002
+!
+ephone 3
+ device-security-mode none
+ mac-address 0060.4712.7ACB
+ type 7960
+ button 1:1
+!
+ephone 4
+ device-security-mode none
+ mac-address 0060.5CBE.B9D0
+ type 7960
+ button 1:2
+!
+line con 0
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+end
+
