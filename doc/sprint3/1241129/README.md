@@ -6,16 +6,16 @@ This folder contains all Sprint 3 outcomes for Terminal 2, developed by member 1
 
 ## Terminal 2 – Packet Tracer Simulation
 
-| File | Description |
-|------|-------------|
+| File            | Description                                                          |
+|-----------------|----------------------------------------------------------------------|
 | `Terminal2.pkt` | Packet Tracer simulation file for Terminal 2 (updated from Sprint 2) |
 
 ---
 
 ## Documentation
 
-| File | Description |
-|------|-------------|
+| File                                       | Description                                             |
+|--------------------------------------------|---------------------------------------------------------|
 | [Terminal2-Level1.md](Terminal2-Level1.md) | Sprint 3 changes for Level 1 — modified and new devices |
 
 ---
@@ -24,11 +24,11 @@ This folder contains all Sprint 3 outcomes for Terminal 2, developed by member 1
 
 All network devices use the following credentials:
 
-| Field    | Value   |
-|----------|---------|
-| Username | `cisco` |
-| Password | `cisco` |
-| Enable   | `cisco` |
+| Field    | Value        |
+|----------|--------------|
+| Username | `cisco`      |
+| Password | `classclass` |
+| Enable   | `classclass` |
 
 
 ---
